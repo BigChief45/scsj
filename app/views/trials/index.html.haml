@@ -1,0 +1,13 @@
+.row
+  .col-md-3
+
+  .col-md-9
+    %h2 Juicios
+
+    - @trials.each do |trial|
+      .panel.panel-default
+        .panel-body
+          %h4= trial.title
+          %p= trial.description
+
+
