@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rails-i18n', '~> 5.0.0'
 
+gem 'haml'
 gem 'devise'
 gem 'simple_form'
 
