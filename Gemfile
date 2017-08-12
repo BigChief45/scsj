@@ -30,6 +30,7 @@ gem 'rails-i18n', '~> 5.0.0'
 
 gem 'haml'
 gem 'devise'
+gem 'devise-i18n'
 gem 'simple_form'
 
 group :development, :test do
