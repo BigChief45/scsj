@@ -1,0 +1,21 @@
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'SCSJ', root_path, class: 'navbar-brand'
+    .navbar-collapse
+      %ul.nav.navbar-nav
+
+      %ul.nav.navbar-nav.navbar-right
+        - unless user_signed_in?
+          %li= link_to t('.sign_up'), register_path
+          %li= link_to t('.sign_in'), login_path
+        - else
+          %li
+            = link_to logout_path, method: :delete do
+              %i.fa.fa-sign-out
+              t('.sign_out')
