@@ -1,0 +1,23 @@
+%h3= @trial.title
+
+.row
+  .col-md-4
+    / Meta
+    %ul.list-inline.small.text-muted
+      %li
+        %i.fa.fa-calendar
+        = @trial.start_date
+
+    %p= simple_format h @trial.description
+
+  / Suing
+  .col-md-2
+    %h4.text-center Demandantes
+
+  / Sued
+  .col-md-2
+    %h4.text-center Demandados
+
+
+
+%hr

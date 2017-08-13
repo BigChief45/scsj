@@ -1,0 +1,8 @@
+= simple_form_for(@trial) do |f|
+
+  .form-inputs
+    = f.input :title, required: true, autofocus: true
+    = f.input :description, required: true
+
+  .form-actions
+    = f.button :submit, 'Crear Juicio', class: 'btn btn-success'

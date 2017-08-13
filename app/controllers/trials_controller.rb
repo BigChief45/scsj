@@ -1,12 +1,16 @@
 class TrialsController < ApplicationController
 
-  before_action :find_trial, except: [:index, :create]
+  before_action :find_trial, only: [:show, :update, :destroy]
 
   def index
     @trials = Trial.all
   end
 
   def show
+  end
+
+  def new
+    @trial = Trial.new
   end
 
   private
