@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20170812222610) do
   create_table "trials", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.date "start_date"
+    t.boolean "secret", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

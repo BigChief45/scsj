@@ -6,6 +6,8 @@ User.create(first_name: 'John', last_name: 'Doe', email: 'johndoe@gmail.com',
 10.times do
   Trial.create(
     title: 'Lorem Ipsum...',
-    description: 'Blah blah blah blah'
+    description: 'Blah blah blah blah',
+    start_date: Date.today,
+    secret: false
   )
 end
