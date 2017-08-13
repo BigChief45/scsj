@@ -14,8 +14,11 @@ RSpec.describe User, type: :model do
   end
 
   context 'instance methods' do
+    let(:user) { FactoryGirl.create(:user) }
 
-
+    it 'returns the user\'s full name' do
+      expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
+    end
 
   end
 end

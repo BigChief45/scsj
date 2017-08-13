@@ -1,0 +1,11 @@
+%h3= @user.full_name
+
+.row
+  .col-md-2
+
+  .col-md-10
+    = render_roles(@user)
+
+    %p
+      %strong E-mail:
+      = @user.email

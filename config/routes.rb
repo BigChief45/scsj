@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'trials/index'
-
   devise_for :users
 
   devise_scope :user do
@@ -10,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :trials
+  resources :users, only: [:show]
 
   root 'trials#index'
 end
