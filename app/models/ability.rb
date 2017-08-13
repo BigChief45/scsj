@@ -12,7 +12,7 @@ class Ability
     elsif user.has_role? :judge
       can :crud, Trial
     elsif user.has_role? :lawyer
-
+      can :read, Trial
     end
 
   end
