@@ -1,6 +1,6 @@
-User.create(first_name: 'John', last_name: 'Doe', email: 'johndoe@gmail.com',
+admin = User.create(first_name: 'John', last_name: 'Doe', email: 'johndoe@gmail.com',
   password: '12345678', password_confirmation: '12345678')
-
+admin.add_role :admin
 
 # Create fake trials
 10.times do
