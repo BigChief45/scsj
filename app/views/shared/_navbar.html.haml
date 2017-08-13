@@ -27,6 +27,15 @@
                     Crear Juicio
               %li.divider
               %li
+                = link_to root_path do
+                  %i.fa.fa-user
+                  Mi Perfil
+              %li
+                = link_to edit_user_registration_path do
+                  %i.fa.fa-cog
+                  Mi Cuenta
+              %li.divider
+              %li
                 = link_to logout_path, method: :delete do
                   %i.fa.fa-sign-out
                   Salir
