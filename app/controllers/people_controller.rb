@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   before_action :set_person, except: [:index, :new, :search]
 
   def search
-    @people = Person.all.where('nombre LIKE ? OR apellido LIKE ?',
+    @people = Person.all.where('name LIKE ? OR last_name LIKE ?',
       "%#{params[:q]}%", "%#{params[:q]}%")
 
     respond_to do |format|

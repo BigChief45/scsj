@@ -16,6 +16,8 @@ lawyer.add_role :lawyer
 # People
 Person.create(name: 'Pablo', last_name: 'Escobar',
   id_number: '0801-1990-23221', birth_date: Date.today)
+  Person.create(name: 'Pablo', last_name: 'Hernandez',
+  id_number: '0801-1990-90234', birth_date: Date.today)
 Person.create(name: 'Enrique', last_name: 'Iglesias',
   id_number: '0801-1990-29876', birth_date: Date.today)
 

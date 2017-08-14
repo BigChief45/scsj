@@ -1,5 +1,6 @@
 class TrialsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :find_trial, only: [:show, :update, :destroy]
 
   def index
@@ -11,6 +12,7 @@ class TrialsController < ApplicationController
 
   def new
     @trial = Trial.new
+    @trial.plaintiffs.build
   end
 
   def create
