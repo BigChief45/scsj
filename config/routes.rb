@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy'
   end
 
-  resources :trials
   resources :users, only: [:show]
+  resources :trials
+  resources :people
 
   root 'trials#index'
 end

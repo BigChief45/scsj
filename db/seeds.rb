@@ -13,6 +13,10 @@ lawyer = User.create(first_name: 'Robert', last_name: 'Baratheon',
   password_confirmation: '12345678')
 lawyer.add_role :lawyer
 
+# People
+Person.create(name: 'Pablo', last_name: 'Escobar',
+  id_number: '0801-1990-23221', birth_date: Date.today)
+
 # Create fake trials
 10.times do
   Trial.create(

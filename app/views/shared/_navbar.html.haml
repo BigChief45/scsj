@@ -20,6 +20,11 @@
               %strong= current_user.email
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
+              - if can? :read, Person
+                %li
+                  = link_to people_path do
+                    %i.fa.fa-user
+                    Personas
               - if can? :create, Trial
                 %li
                   = link_to new_trial_path do

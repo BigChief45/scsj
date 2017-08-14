@@ -1,0 +1,16 @@
+%h3
+  = @person.full_name
+  .pull-right
+    = render 'shared/manage_resource', resource: @person
+
+.row
+  .col-md-3
+
+  .col-md-9
+    %p
+      %strong No. Identidad:
+      = @person.id_number
+
+    %p
+      %strong Fecha de Nacimiento:
+      = @person.birth_date

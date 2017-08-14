@@ -1,0 +1,7 @@
+.btn-toolbar
+  .btn-group.btn-group-sm
+    = link_to [:edit, resource], class: 'btn btn-default' do
+      %i.fa.fa-pencil
+    = link_to resource, method: :delete, data: { confirm: 'Esta seguro?' },
+      class: 'btn btn-warning' do
+      %i.fa.fa-trash

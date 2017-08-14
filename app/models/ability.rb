@@ -10,6 +10,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :judge
+      can :create, Person
       can :crud, Trial
     elsif user.has_role? :lawyer
       can :read, Trial
