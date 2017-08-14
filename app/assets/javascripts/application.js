@@ -12,5 +12,5 @@
 //
 //= require rails-ujs
 //= require bootstrap/dropdown
-//= require jquery.tokeninput
+//= require select2-full
 //= require_tree .

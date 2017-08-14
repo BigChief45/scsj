@@ -38,7 +38,7 @@ gem 'simple_form'
 gem 'rolify'
 gem 'cancancan', '~> 2.0'
 
-gem 'jquery-tokeninput-rails'
+gem 'select2-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
