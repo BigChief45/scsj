@@ -9,4 +9,6 @@ class Person < ApplicationRecord
     "#{name} #{last_name}"
   end
 
+  has_many :trial_people, as: :triable
+
 end

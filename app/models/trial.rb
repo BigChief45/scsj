@@ -5,7 +5,7 @@ class Trial < ApplicationRecord
   validates :start_date, presence: true
 
   has_many :trial_people
-  has_many :plaintiffs, class_name: 'Plaintiff', through: :trial_people, source: :person
-  has_many :defendants, class_name: 'Defendant', through: :trial_people, source: :person
+  has_many :plaintiffs, source: :triable, source_type: 'Plaintiff', through: :trial_people
+  has_many :defendants, source: :triable, source_type: 'Defendant', through: :trial_people
 
 end

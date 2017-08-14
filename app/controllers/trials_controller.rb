@@ -13,9 +13,12 @@ class TrialsController < ApplicationController
   def new
     @trial = Trial.new
     @trial.plaintiffs.build
+    @trial.defendants.build
   end
 
   def create
+    puts params.inspect
+
     @trial = Trial.new(trial_params)
 
     respond_to do |format|
@@ -34,7 +37,7 @@ class TrialsController < ApplicationController
   end
 
   def trial_params
-    params.require(:trial).permit(:title, :description)
+    params.require(:trial).permit(:title, :description, :start_date, :plaintiff_ids => [], :defendant_ids => [])
   end
 
 end

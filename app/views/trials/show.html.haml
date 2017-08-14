@@ -10,13 +10,17 @@
 
     %p= simple_format h @trial.description
 
-  / Suing
   .col-md-2
     %h4.text-center Demandantes
+    .list-group
+      - @trial.plaintiffs.each do |person|
+        = link_to person.full_name, person_path(person), class: 'list-group-item'
 
-  / Sued
   .col-md-2
     %h4.text-center Demandados
+    .list-group
+      - @trial.defendants.each do |person|
+        = link_to person.full_name, person_path(person), class: 'list-group-item'
 
 
 

@@ -1,0 +1,7 @@
+- if resource.errors.any?
+  #error_messages.alert.alert-danger
+    %h4
+      %strong Porfavor corrija los siguientes errores:
+    %ul
+      - resource.errors.full_messages.each do |message|
+        %li= message

@@ -1,8 +1,12 @@
 = simple_form_for(@trial) do |f|
 
+  // ERROR MESSAGES
+  = render 'shared/error_messages', resource: @trial
+
   .form-inputs
     = f.input :title, required: true, autofocus: true
     = f.input :description, required: true
+    = f.input :start_date, required: true
 
   .row
     .col-md-6

@@ -38,9 +38,12 @@ ActiveRecord::Schema.define(version: 20170814030358) do
   create_table "trial_people", force: :cascade do |t|
     t.bigint "trial_id"
     t.bigint "person_id"
+    t.string "triable_type"
+    t.bigint "triable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["person_id"], name: "index_trial_people_on_person_id"
+    t.index ["triable_type", "triable_id"], name: "index_trial_people_on_triable_type_and_triable_id"
     t.index ["trial_id"], name: "index_trial_people_on_trial_id"
   end
 
