@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813232038) do
+ActiveRecord::Schema.define(version: 20170814030358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20170813232038) do
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "trial_people", force: :cascade do |t|
+    t.bigint "trial_id"
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_trial_people_on_person_id"
+    t.index ["trial_id"], name: "index_trial_people_on_trial_id"
   end
 
   create_table "trials", force: :cascade do |t|
@@ -71,4 +80,6 @@ ActiveRecord::Schema.define(version: 20170813232038) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "trial_people", "people"
+  add_foreign_key "trial_people", "trials"
 end
