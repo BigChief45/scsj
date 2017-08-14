@@ -1,4 +1,4 @@
-%h2= t('.sign_in')
+%h3.text-center= t('.sign_in')
 
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .form-inputs
@@ -8,4 +8,7 @@
   .form-actions
     = f.button :submit, t('.sign_in'), class: 'btn btn-success'
 
-= render 'devise/shared/links'
+%hr
+
+.text-center
+  = render 'devise/shared/links'
