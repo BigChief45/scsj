@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :trials
+
   resources :people
+  get 'people_search', to: 'people#search'
 
   root 'trials#index'
 end

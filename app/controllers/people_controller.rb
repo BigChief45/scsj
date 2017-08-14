@@ -1,7 +1,16 @@
 class PeopleController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_person, except: [:index, :new]
+  before_action :set_person, except: [:index, :new, :search]
+
+  def search
+    @people = Person.all.where('nombre LIKE ? OR apellido LIKE ?',
+      "%#{params[:q]}%", "%#{params[:q]}%")
+
+    respond_to do |format|
+      format.json { render json: @people.map { |p| { id: p.id, full_name: p.full_name } } }
+    end
+  end
 
   def index
     @people = Person.all

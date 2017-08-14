@@ -7,6 +7,8 @@
   .row
     .col-md-6
       %h3.text-center Demandantes
+      - countries = [{ name: 'Hong Kong', iso_code: 'HK' }, { name: 'Jamaica', iso_code: 'JM' }]
+      = f.input :plaintiff_tokens, as: :string, input_html: { data: { tokeninput: { collection: countries } } }
 
     .col-md-6
       %h3.text-center Demandados
