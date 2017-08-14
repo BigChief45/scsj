@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rails-i18n', '~> 5.0.0'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'haml'
 gem 'devise'
 gem 'devise-i18n'

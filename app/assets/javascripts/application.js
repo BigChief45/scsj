@@ -11,5 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require bootstrap/dropdown
 //= require jquery.tokeninput
 //= require_tree .
