@@ -6,6 +6,9 @@
   .form-inputs
     = f.input :title, required: true, autofocus: true
     = f.input :description, required: true
+
+    = f.association :judge, collection: User.judges, label_method: :full_name, value_method: :id, required: true, readonly: true, selected: current_user.id
+
     = f.input :start_date, required: true
 
   .row

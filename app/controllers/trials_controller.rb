@@ -17,7 +17,6 @@ class TrialsController < ApplicationController
 
   def create
     @trial = Trial.new(trial_params)
-    @trial.judge = current_user
 
     respond_to do |format|
       if @trial.save
@@ -60,7 +59,7 @@ class TrialsController < ApplicationController
   end
 
   def trial_params
-    params.require(:trial).permit(:title, :description, :start_date, :plaintiff_ids => [], :defendant_ids => [])
+    params.require(:trial).permit(:title, :description, :start_date, :judge_id, :plaintiff_ids => [], :defendant_ids => [])
   end
 
 end
