@@ -1,0 +1,8 @@
+%ul.list-inline.small
+  %li
+    = image_tag 'icons/calendar_16.png'
+    %strong= l(trial.start_date)
+  %li
+    = link_to user_path(trial.judge) do
+      = image_tag 'icons/roles/judge_16.png'
+      %strong.text-default= trial.judge.full_name

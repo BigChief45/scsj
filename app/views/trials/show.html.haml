@@ -1,25 +1,21 @@
-%h3
+%h2
   = @trial.title
   .pull-right
     = render 'shared/manage_resource', resource: @trial
 
 .row
-  .col-md-4
-    / Meta
-    %ul.list-inline.small.text-muted
-      %li
-        %i.fa.fa-calendar
-        = @trial.start_date
+  .col-md-6
+    = render 'meta', trial: @trial
 
     %p= simple_format h @trial.description
 
-  .col-md-2
+  .col-md-3
     %h4.text-center Demandantes
     .list-group
       - @trial.plaintiffs.each do |person|
         = link_to person.full_name, person_path(person), class: 'list-group-item'
 
-  .col-md-2
+  .col-md-3
     %h4.text-center Demandados
     .list-group
       - @trial.defendants.each do |person|

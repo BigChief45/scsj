@@ -24,9 +24,10 @@ Person.create(name: 'Enrique', last_name: 'Iglesias',
 # Create fake trials
 10.times do
   Trial.create(
-    title: 'Lorem Ipsum...',
-    description: 'Blah blah blah blah',
+    title: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph(10),
     start_date: Date.today,
-    secret: false
+    secret: false,
+    judge: judge
   )
 end

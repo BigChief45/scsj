@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170814030358) do
     t.text "description"
     t.date "start_date"
     t.boolean "secret", default: false
+    t.integer "judge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

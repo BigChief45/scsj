@@ -6,7 +6,7 @@ class CreateTrials < ActiveRecord::Migration[5.1]
       t.date :start_date
       t.boolean :secret, default: false
 
-      t.references :user
+      t.integer :judge_id, foreign_key: true
 
       t.timestamps
     end

@@ -7,9 +7,9 @@
     - @trials.each do |trial|
       .panel.panel-default
         .panel-body
-          %h4
-            =link_to trial.title, trial
-            %small= trial.start_date
+          %h4= link_to trial.title, trial
+          = render 'meta', trial: trial
+
           %p= trial.description
 
 
