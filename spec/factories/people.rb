@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :person do
-    name 'Benito'
-    last_name 'Camela'
-    id_number '0801-1993-23209'
+    name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    id_number { Faker::Number.number(12) }
     birth_date { Date.today }
   end
 end
