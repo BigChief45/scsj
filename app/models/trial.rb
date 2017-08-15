@@ -8,4 +8,6 @@ class Trial < ApplicationRecord
   has_many :plaintiffs, source: :triable, source_type: 'Plaintiff', through: :trial_people
   has_many :defendants, source: :triable, source_type: 'Defendant', through: :trial_people
 
+
+  belongs_to :judge, class_name: 'User'
 end

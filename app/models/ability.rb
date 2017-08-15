@@ -11,6 +11,8 @@ class Ability
       can :manage, :all
     elsif user.has_role? :judge
       can :create, Person
+
+      # TODO: CRUD only own trials
       can :crud, Trial
     elsif user.has_role? :lawyer
       can :read, Trial

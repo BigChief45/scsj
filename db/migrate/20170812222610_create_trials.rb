@@ -6,6 +6,8 @@ class CreateTrials < ActiveRecord::Migration[5.1]
       t.date :start_date
       t.boolean :secret, default: false
 
+      t.references :user
+
       t.timestamps
     end
   end
