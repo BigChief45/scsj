@@ -1,3 +1,9 @@
+# Create initial roles
+puts 'Creating roles...'
+Role.create!(name: 'admin')
+Role.create!(name: 'judge')
+Role.create!(name: 'lawyer')
+
 admin = User.create(first_name: 'John', last_name: 'Doe',
   email: 'johndoe@gmail.com', password: '12345678',
   password_confirmation: '12345678')
