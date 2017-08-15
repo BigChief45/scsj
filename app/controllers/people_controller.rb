@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
       if @person.update(person_params)
         format.html { redirect_to @person, flash: { success: 'Persona editada exitosamente' } }
       else
-        format.html { render 'new', flash: { danger: 'Error al tratar de actualizar persona.' } }
+        format.html { render 'edit', flash: { danger: 'Error al tratar de actualizar persona.' } }
       end
     end
   end

@@ -10,10 +10,10 @@
 
   .row
     .col-md-6
-      = f.association :plaintiffs, label_method: :full_name, value_method: :id, input_html: { 'data-endpoint': people_search_path, class: 'select2-field' }
+      = f.association :plaintiffs, label_method: :full_name, value_method: :id, include_blank: false, input_html: { 'data-endpoint': people_search_path, class: 'select2-field' }
 
     .col-md-6
-      = f.association :defendants, label_method: :full_name, value_method: :id, input_html: { 'data-endpoint': people_search_path, class: 'select2-field' }
+      = f.association :defendants, label_method: :full_name, value_method: :id, include_blank: false, input_html: { 'data-endpoint': people_search_path, class: 'select2-field' }
 
   .form-actions
     = f.button :submit, 'Crear Juicio', class: 'btn btn-success'

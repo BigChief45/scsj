@@ -1,4 +1,7 @@
-%h3= @trial.title
+%h3
+  = @trial.title
+  .pull-right
+    = render 'shared/manage_resource', resource: @trial
 
 .row
   .col-md-4

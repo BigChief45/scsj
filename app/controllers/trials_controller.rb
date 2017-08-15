@@ -1,7 +1,7 @@
 class TrialsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :find_trial, only: [:show, :update, :destroy]
+  before_action :find_trial, only: [:show, :edit, :update, :destroy,]
 
   def index
     @trials = Trial.all
@@ -12,13 +12,10 @@ class TrialsController < ApplicationController
 
   def new
     @trial = Trial.new
-    @trial.plaintiffs.build
-    @trial.defendants.build
+    @trial.trial_people.build
   end
 
   def create
-    puts params.inspect
-
     @trial = Trial.new(trial_params)
 
     respond_to do |format|
@@ -26,6 +23,31 @@ class TrialsController < ApplicationController
         format.html { redirect_to @trial, flash: { success: 'Juicio creado exitosamente.' } }
       else
         format.html { render 'new', flash: { danger: 'Error al intentar crear juicio.' } }
+      end
+    end
+  end
+
+  def edit
+    @trial.trial_people.build
+  end
+
+  def update
+    params[:trial][:plaintiff_ids] ||= []
+    params[:trial][:defendant_ids] ||= []
+
+    respond_to do |format|
+      if @trial.update(trial_params)
+        format.html { redirect_to @trial, flash: { success: 'Juicio editado exitosamente.' } }
+      else
+        format.html { render 'edit', flash: { danger: 'Error al tratar de actualizar juicio.' } }
+      end
+    end
+  end
+
+  def destroy
+    respond_to do |format|
+      if @trial.destroy
+        format.html { redirect_to root_path, flash: { success: 'Juicio eliminado exitosamente' } }
       end
     end
   end
