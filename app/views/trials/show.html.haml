@@ -4,22 +4,34 @@
     = render 'shared/manage_resource', resource: @trial
 
 .row
-  .col-md-6
+  .col-md-12
     = render 'meta', trial: @trial
 
     %p= simple_format h @trial.description
 
+%br
+
+.row
   .col-md-3
-    %h4.text-center Demandantes
-    .list-group
-      - @trial.plaintiffs.each do |person|
-        = link_to person.full_name, person_path(person), class: 'list-group-item'
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title.text-center Demandantes
+      %ul.list-group
+        %li.list-group-item
+          = image_tag 'icons/roles/lawyer.png'
+          -# TODO: Put lawyer here
+
+        - @trial.plaintiffs.each do |person|
+          %li.list-group-item= link_to person.full_name, person_path(person)
 
   .col-md-3
-    %h4.text-center Demandados
-    .list-group
-      - @trial.defendants.each do |person|
-        = link_to person.full_name, person_path(person), class: 'list-group-item'
+    .panel.panel-danger
+      .panel-heading
+        %h4.panel-title.text-center Demandados
+
+      %ul.list-group
+        - @trial.defendants.each do |person|
+          %li.list-group-item= link_to person.full_name, person_path(person)
 
 
 
