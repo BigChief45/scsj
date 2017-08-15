@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  scope :admins, -> { User.with_role(:admin) }
+  scope :judges, -> { User.with_role(:judge) }
+  scope :lawyers, -> { User.with_role(:lawyer) }
+
   def full_name
     "#{first_name} #{last_name}"
   end
