@@ -4,7 +4,7 @@ class TrialsController < ApplicationController
   before_action :find_trial, only: [:show, :edit, :update, :destroy,]
 
   def index
-    @trials = Trial.all
+    @trials = Trial.all.order('created_at DESC')
   end
 
   def show
@@ -17,6 +17,7 @@ class TrialsController < ApplicationController
 
   def create
     @trial = Trial.new(trial_params)
+    @trial.judge = current_user
 
     respond_to do |format|
       if @trial.save
