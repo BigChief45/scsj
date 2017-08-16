@@ -10,4 +10,6 @@ class Trial < ApplicationRecord
 
 
   belongs_to :judge, class_name: 'User', foreign_key: :judge_id
+  belongs_to :plaintiffs_lawyer, class_name: 'User', foreign_key: :plaintiffs_lawyer_id
+  belongs_to :defendants_lawyer, class_name: 'User', foreign_key: :defendants_lawyer_id
 end

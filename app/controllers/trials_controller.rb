@@ -59,7 +59,7 @@ class TrialsController < ApplicationController
   end
 
   def trial_params
-    params.require(:trial).permit(:title, :description, :start_date, :judge_id, :plaintiff_ids => [], :defendant_ids => [])
+    params.require(:trial).permit(:title, :description, :start_date, :judge_id, :plaintiffs_lawyer_id, :defendants_lawyer_id, :plaintiff_ids => [], :defendant_ids => [])
   end
 
 end

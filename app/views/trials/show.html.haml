@@ -13,23 +13,30 @@
 
 .row
   .col-md-3
+    -# Plaintiffs
     .panel.panel-primary
       .panel-heading
         %h4.panel-title.text-center Demandantes
+
       %ul.list-group
         %li.list-group-item
           = image_tag 'icons/roles/lawyer.png'
-          -# TODO: Put lawyer here
+          = link_to @trial.plaintiffs_lawyer.full_name, user_path(@trial.plaintiffs_lawyer)
 
         - @trial.plaintiffs.each do |person|
           %li.list-group-item= link_to person.full_name, person_path(person)
 
   .col-md-3
+    -# Defentants
     .panel.panel-danger
       .panel-heading
         %h4.panel-title.text-center Demandados
 
       %ul.list-group
+        %li.list-group-item
+          = image_tag 'icons/roles/lawyer.png'
+          = link_to @trial.defendants_lawyer.full_name, user_path(@trial.defendants_lawyer)
+
         - @trial.defendants.each do |person|
           %li.list-group-item= link_to person.full_name, person_path(person)
 

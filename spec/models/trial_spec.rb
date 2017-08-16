@@ -18,7 +18,9 @@ RSpec.describe Trial, type: :model do
     it { is_expected.to have_many(:plaintiffs).through(:trial_people).source(:triable) }
     it { is_expected.to have_many(:defendants).through(:trial_people).source(:triable) }
 
-    it { is_expected.to belong_to(:judge).class_name('User').with_foreign_key(:judge_id)}
+    it { is_expected.to belong_to(:judge).class_name('User').with_foreign_key(:judge_id) }
+    it { is_expected.to belong_to(:plaintiffs_lawyer).class_name('User').with_foreign_key(:plaintiffs_lawyer_id) }
+    it { is_expected.to belong_to(:defendants_lawyer).class_name('User').with_foreign_key(:defendants_lawyer_id) }
   end
 
 end

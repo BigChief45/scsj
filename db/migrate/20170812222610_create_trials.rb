@@ -7,6 +7,8 @@ class CreateTrials < ActiveRecord::Migration[5.1]
       t.boolean :secret, default: false
 
       t.integer :judge_id, foreign_key: true
+      t.integer :plaintiffs_lawyer_id, foreign_key: true
+      t.integer :defendants_lawyer_id, foreign_key: true
 
       t.timestamps
     end
