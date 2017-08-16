@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  has_many :trials, foreign_key: :judge_id
+
   scope :admins, -> { User.with_role(:admin) }
   scope :judges, -> { User.with_role(:judge) }
   scope :lawyers, -> { User.with_role(:lawyer) }

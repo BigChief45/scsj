@@ -1,4 +1,4 @@
-%h3= @user.full_name
+%h2= @user.full_name
 
 .row
   .col-md-2
@@ -9,3 +9,16 @@
     %p
       %strong E-mail:
       = @user.email
+
+- if @user.has_role?(:judge) && @user == current_user
+  .row
+    .col-md-12
+      %h3 Mis Juicios
+
+      - current_user.trials.each do |trial|
+        .panel.panel-default
+          .panel-body
+            %h4= link_to trial.title, trial
+            = render 'trials/meta', trial: trial
+
+            %p= trial.description
