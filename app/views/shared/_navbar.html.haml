@@ -28,19 +28,19 @@
               - if can? :create, Trial
                 %li
                   = link_to new_trial_path do
-                    %i.fa.fa-balance-scale
+                    = image_tag 'icons/application_form_add_16.png'
                     Crear Juicio
               %li.divider
               %li
                 = link_to user_path(current_user) do
-                  %i.fa.fa-user
+                  = image_tag 'icons/user_16.png'
                   Mi Perfil
               %li
                 = link_to edit_user_registration_path do
-                  %i.fa.fa-cog
+                  = image_tag 'icons/cog_edit_16.png'
                   Mi Cuenta
               %li.divider
               %li
                 = link_to logout_path, method: :delete do
-                  %i.fa.fa-sign-out
+                  = image_tag 'icons/door_out_16.png'
                   Salir
