@@ -1,4 +1,6 @@
 $ ->
+  $('[data-toggle="tooltip"]').tooltip()
+
   $('.select2-field').select2
     theme: 'bootstrap'
     minimumInputLength: 1
