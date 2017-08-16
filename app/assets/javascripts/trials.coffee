@@ -1,5 +1,6 @@
 $ ->
   $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
 
   $('.select2-field').select2
     theme: 'bootstrap'

@@ -2,7 +2,13 @@
   %li
     = image_tag 'icons/calendar_16.png'
     %strong= l(trial.start_date)
+
   %li{ 'data-toggle': 'tooltip', 'data-placement': 'bottom', title: 'Juez' }
     = link_to user_path(trial.judge) do
       = image_tag 'icons/roles/judge_16.png'
-      %strong.text-default= trial.judge.full_name
+      %strong= trial.judge.full_name
+
+  - if trial.secret
+    %li
+      = image_tag 'icons/lock_16.png'
+      %strong Confidencial
