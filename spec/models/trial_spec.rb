@@ -7,10 +7,17 @@ RSpec.describe Trial, type: :model do
   end
 
   context 'validations' do
+    let(:lawyer) { FactoryGirl.create(:user) }
+
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :description }
     #it { is_expected.to validate_presence_of :secret }
     it { is_expected.to validate_presence_of :start_date }
+
+
+    it 'validates that both lawyers are not the same' do
+      expect(FactoryGirl.build(:trial, plaintiffs_lawyer: lawyer, defendants_lawyer: lawyer)).to_not be_valid
+    end
   end
 
   context 'associations' do
