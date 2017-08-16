@@ -9,10 +9,14 @@ admin = User.create!(first_name: 'John', last_name: 'Doe',
   password_confirmation: '12345678')
 admin.add_role :admin
 
-judge = User.create!(first_name: 'Jamie', last_name: 'Lannister',
-  email: 'jlan@gmail.com', password: '12345678',
-  password_confirmation: '12345678')
-judge.add_role :judge
+
+# Create judges
+5.times do
+  judge = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+    email: Faker::Internet.email, password: '12345678',
+    password_confirmation: '12345678')
+  judge.add_role :judge
+end
 
 # Create lawyers
 5.times do
@@ -38,7 +42,7 @@ Person.create!(name: 'Enrique', last_name: 'Iglesias',
     description: Faker::Lorem.paragraph(10),
     start_date: Date.today,
     secret: false,
-    judge: judge,
+    judge: User.judges.order('RANDOM()').limit(1).first,
     plaintiffs_lawyer: User.lawyers.first,
     defendants_lawyer: User.lawyers.last
   )
