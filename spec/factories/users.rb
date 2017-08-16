@@ -6,4 +6,17 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+
+  trait :admin do
+    after(:create) { |user| user.add_role(:admin) }
+  end
+
+  trait :judge do
+    after(:create) { |user| user.add_role(:judge) }
+  end
+
+  trait :lawyer do
+    after(:create) { |user| user.add_role(:lawyer) }
+  end
+
 end

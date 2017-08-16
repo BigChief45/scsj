@@ -12,8 +12,10 @@ class Ability
     elsif user.has_role? :judge
       can :create, Person
 
-      # TODO: CRUD only own trials
-      can :crud, Trial
+      cannot :read, Trial, secret: true
+      can :read, Trial, secret: false
+      can :manage, Trial, judge_id: user.id
+
     elsif user.has_role? :lawyer
       can :read, Trial
     end
