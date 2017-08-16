@@ -17,7 +17,7 @@
         - else
           %li.dropdown
             %a{ :class => 'dropdown-toggle', "data-toggle" => 'dropdown', :role => 'button', "aria-expanded" => false }
-              %strong= current_user.email
+              %strong= current_user.full_name
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
               - if can? :read, Person
