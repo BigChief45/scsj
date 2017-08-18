@@ -21,15 +21,15 @@
           = @user.email
       .col-md-10
 
-- if @user.has_role?(:judge) && @user == current_user
-  .row
-    .col-md-12
-      %h3 Mis Juicios
 
-      - current_user.trials.each do |trial|
-        .panel.panel-default
-          .panel-body
-            %h4= link_to trial.title, trial
-            = render 'trials/meta', trial: trial
+.row
+  .col-md-12
+    %h3 Mis Juicios
 
-            %p= trial.description
+    - current_user.trials.each do |trial|
+      .panel.panel-default
+        .panel-body
+          %h4= link_to trial.title, trial
+          = render 'trials/meta', trial: trial
+
+          %p= trial.description

@@ -19,6 +19,22 @@ RSpec.describe Ability, type: :model do
     end
   end
 
+  describe 'Lawyer' do
+    describe 'abilities' do
+      subject(:ablity) { Ability.new(user) }
+      let(:user) { FactoryGirl.create(:user, :lawyer) }
+
+      it { should be_able_to(:read, Trial.new(secret: false)) }
+      it { should_not be_able_to(:read, Trial.new(secret: true)) }
+      it { should be_able_to(:read, Trial.new(secret: true, plaintiffs_lawyer: user)) }
+      it { should be_able_to(:read, Trial.new(secret: true, defendants_lawyer: user)) }
+
+      it { should be_able_to(:create, TrialPresentation.new(trial: Trial.new(plaintiffs_lawyer: user))) }
+      it { should be_able_to(:create, TrialPresentation.new(trial: Trial.new(defendants_lawyer: user))) }
+
+    end
+  end
+
   describe 'Guest User' do
     describe 'abilities' do
       subject(:ability) { Ability.new(User.new) }
