@@ -16,6 +16,9 @@ RSpec.describe Ability, type: :model do
       it { should_not be_able_to(:manage, Trial.new) }
       it { should be_able_to(:read, Trial.new(secret: false)) }
       it { should_not be_able_to(:read, Trial.new(secret: true)) }
+
+      it { should be_able_to(:manage, TrialPresentation.new(trial: Trial.new(judge: user))) }
+      it { should_not be_able_to(:manage, TrialPresentation.new) }
     end
   end
 
@@ -31,6 +34,7 @@ RSpec.describe Ability, type: :model do
 
       it { should be_able_to(:create, TrialPresentation.new(trial: Trial.new(plaintiffs_lawyer: user))) }
       it { should be_able_to(:create, TrialPresentation.new(trial: Trial.new(defendants_lawyer: user))) }
+      it { should_not be_able_to(:create, TrialPresentation.new()) }
 
     end
   end

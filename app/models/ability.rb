@@ -16,6 +16,8 @@ class Ability
     if user.has_role? :judge
       can :create, Person
       can :manage, Trial, judge_id: user.id
+
+      can :manage, TrialPresentation, trial: { judge: user }
     end
 
     if user.has_role? :lawyer
