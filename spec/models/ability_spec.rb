@@ -19,4 +19,12 @@ RSpec.describe Ability, type: :model do
     end
   end
 
+  describe 'Guest User' do
+    describe 'abilities' do
+      subject(:ability) { Ability.new(User.new) }
+
+      it { should be_able_to(:read, Trial) }
+    end
+  end
+
 end

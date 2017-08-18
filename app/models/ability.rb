@@ -18,6 +18,8 @@ class Ability
 
     elsif user.has_role? :lawyer
       can :read, Trial
+    else
+      can :read, Trial
     end
 
   end
