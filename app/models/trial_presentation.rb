@@ -1,4 +1,5 @@
 class TrialPresentation < ApplicationRecord
+  mount_uploaders :attachments, AttachmentUploader
 
   validates :description, presence: true
 
