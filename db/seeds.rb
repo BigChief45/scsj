@@ -28,12 +28,11 @@ end
 
 
 # People
-Person.create!(name: 'Pablo', last_name: 'Escobar',
-  id_number: '0801-1990-23221', birth_date: Date.today)
-  Person.create!(name: 'Pablo', last_name: 'Hernandez',
-  id_number: '0801-1990-90234', birth_date: Date.today)
-Person.create!(name: 'Enrique', last_name: 'Iglesias',
-  id_number: '0801-1990-29876', birth_date: Date.today)
+5.times do
+  Person.create!(name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+    id_number: Faker::Number.number(12), birth_date: Date.today)
+end
+
 
 # Create fake trials
 10.times do
@@ -44,6 +43,8 @@ Person.create!(name: 'Enrique', last_name: 'Iglesias',
     secret: false,
     judge: User.judges.order('RANDOM()').limit(1).first,
     plaintiffs_lawyer: User.lawyers.first,
-    defendants_lawyer: User.lawyers.last
+    defendants_lawyer: User.lawyers.last,
+    plaintiff_ids: Person.order('RANDOM()').limit(1).map { |p| p.id },
+    defendant_ids: Person.order('RANDOM()').limit(1).map { |p| p.id }
   )
 end
