@@ -1,0 +1,19 @@
+.row
+  .col-md-1
+    = image_tag current_user.avatar.url(:comment), class: 'img-rounded'
+  .col-md-11
+    .panel.panel-default.panel-comment
+      .panel-heading
+        %h4.panel-title
+          Ingresar nueva presentacion
+      .panel-body
+        = simple_form_for([@trial, @presentation]) do |f|
+          = f.error_notification
+
+          .form-inputs
+            = f.hidden_field :lawyer_id, value: current_user.id
+            = f.input :description, label: false, required: true
+
+          .form-actions
+            .pull-right
+              = f.button :submit, class: 'btn btn-success'

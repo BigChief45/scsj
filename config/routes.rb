@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
-  resources :trials
+  resources :trials do
+    resources :trial_presentations
+  end
 
   resources :people
   get 'people_search', to: 'people#search'

@@ -8,6 +8,7 @@ class TrialsController < ApplicationController
   end
 
   def show
+    @presentation = @trial.trial_presentations.build
   end
 
   def new

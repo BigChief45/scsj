@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-body
+    .row
+      .col-md-1
+        = link_to(image_tag(trial_presentation.lawyer.avatar.url(:comment)), trial_presentation.lawyer, class: 'img-rounded')
+      .col-md-11
+        %h5
+          %strong= link_to trial_presentation.lawyer.full_name, trial_presentation.lawyer
+        %p.small.text-muted= l(trial_presentation.created_at)
+
+    %br
+
+    .row
+      .col-md-12
+        %p= simple_format h trial_presentation.description

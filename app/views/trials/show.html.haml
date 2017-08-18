@@ -40,6 +40,14 @@
         - @trial.defendants.each do |person|
           %li.list-group-item= link_to person.full_name, person_path(person)
 
-
-
 %hr
+
+.row
+  .col-md-12
+    %h3 Presentaciones
+
+    = render partial: @trial.trial_presentations.order('created_at DESC')
+
+    %hr
+
+    = render 'trial_presentations/form'
