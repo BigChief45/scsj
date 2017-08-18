@@ -20,7 +20,7 @@
 
       %ul.list-group
         %li.list-group-item
-          = image_tag 'icons/roles/lawyer.png'
+          = image_tag 'icons/roles/lawyer_16.png'
           = link_to @trial.plaintiffs_lawyer.full_name, user_path(@trial.plaintiffs_lawyer)
 
         - @trial.plaintiffs.each do |person|
@@ -34,7 +34,7 @@
 
       %ul.list-group
         %li.list-group-item
-          = image_tag 'icons/roles/lawyer.png'
+          = image_tag 'icons/roles/lawyer_16.png'
           = link_to @trial.defendants_lawyer.full_name, user_path(@trial.defendants_lawyer)
 
         - @trial.defendants.each do |person|
