@@ -10,3 +10,13 @@
         %p.small.text-muted= l(trial_presentation.created_at)
 
         %p= simple_format h trial_presentation.description
+
+        %h6
+          %strong Archivos adjuntos:
+        %ul.list-inline
+          - trial_presentation.attachments.each_with_index do |attachment, i|
+            %li
+              = link_to attachment.url do
+                = image_tag "icons/file_types/#{attachment_icon(trial_presentation.attachments_identifiers[i])}"
+                -# NOTE: Work-around for Carrierwave's attachment.identifier => nil bug
+                = trial_presentation.attachments_identifiers[i]

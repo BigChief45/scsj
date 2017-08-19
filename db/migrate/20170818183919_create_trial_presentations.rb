@@ -6,7 +6,7 @@ class CreateTrialPresentations < ActiveRecord::Migration[5.1]
       t.integer :lawyer_id, foreign_key: true
       t.references :trial, foreign_key: true
 
-      t.json :attachments
+      t.string :attachments, array: true, default: []
 
       t.timestamps
     end

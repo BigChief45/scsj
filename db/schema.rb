@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170818183919) do
     t.text "description"
     t.integer "lawyer_id"
     t.bigint "trial_id"
-    t.json "attachments"
+    t.string "attachments", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trial_id"], name: "index_trial_presentations_on_trial_id"

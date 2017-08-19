@@ -8,12 +8,15 @@
           %h4.panel-title
             Ingresar nueva presentacion
         .panel-body
-          = simple_form_for([@trial, @presentation]) do |f|
-            = f.error_notification
+          = simple_form_for([@trial, @presentation], html: {multipart: true}) do |f|
+
+            // ERROR MESSAGES
+            = render 'shared/error_messages', resource: @presentation
 
             .form-inputs
               = f.hidden_field :lawyer_id, value: current_user.id
               = f.input :description, label: false, required: true
+              = f.file_field :attachments, multiple: true
 
             .form-actions
               .pull-right
