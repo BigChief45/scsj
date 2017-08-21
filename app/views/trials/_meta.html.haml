@@ -1,7 +1,7 @@
 %ul.list-inline.small
   %li
     = image_tag 'icons/calendar_16.png'
-    %strong= l(trial.start_date)
+    %strong= l(trial.start_date, format: :long)
 
   %li{ 'data-toggle': 'tooltip', 'data-placement': 'bottom', title: 'Juez' }
     = link_to user_path(trial.judge) do
