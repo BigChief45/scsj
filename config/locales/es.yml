@@ -1,2 +1,11 @@
 es:
-  hello: 'Hola mundo'
+  trials:
+    create:
+      success: "Juicio creado exitosamente."
+      error: "Error al tratar de crear el juicio."
+    update:
+      success: "Juicio actualizado exitosamente."
+      error: "Error al tratar de actualizar el juicio."
+    destroy:
+      success: "El juicio ha sido eliminado exitosamente."
+      error: "Hubo un error al intentar eliminar el juicio."

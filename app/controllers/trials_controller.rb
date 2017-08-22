@@ -21,9 +21,9 @@ class TrialsController < ApplicationController
 
     respond_to do |format|
       if @trial.save
-        format.html { redirect_to @trial, flash: { success: 'Juicio creado exitosamente.' } }
+        format.html { redirect_to @trial, flash: { success: t('.success') } }
       else
-        format.html { render 'new', flash: { danger: 'Error al intentar crear juicio.' } }
+        format.html { render 'new', flash: { danger: t('.error') } }
       end
     end
   end
@@ -38,9 +38,9 @@ class TrialsController < ApplicationController
 
     respond_to do |format|
       if @trial.update(trial_params)
-        format.html { redirect_to @trial, flash: { success: 'Juicio editado exitosamente.' } }
+        format.html { redirect_to @trial, flash: { success: t('.success') } }
       else
-        format.html { render 'edit', flash: { danger: 'Error al tratar de actualizar juicio.' } }
+        format.html { render 'edit', flash: { danger: t('.error') } }
       end
     end
   end
@@ -48,7 +48,7 @@ class TrialsController < ApplicationController
   def destroy
     respond_to do |format|
       if @trial.destroy
-        format.html { redirect_to root_path, flash: { success: 'Juicio eliminado exitosamente' } }
+        format.html { redirect_to root_path, flash: { success: t('.success') } }
       end
     end
   end
