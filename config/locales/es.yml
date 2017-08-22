@@ -8,4 +8,12 @@ es:
       error: "Error al tratar de actualizar el juicio."
     destroy:
       success: "El juicio ha sido eliminado exitosamente."
-      error: "Hubo un error al intentar eliminar el juicio."
+      error: "Error al intentar eliminar el juicio."
+
+  people:
+    update:
+      success: "Persona actualizada exitosamente."
+      error: "Error al intentar actualizar la persona."
+    destroy:
+      success: "Persona eliminada exitosamente del sistema."
+      error: "Error al intentar eliminar persona del sistema."

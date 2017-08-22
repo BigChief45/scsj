@@ -41,9 +41,9 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update(person_params)
-        format.html { redirect_to @person, flash: { success: 'Persona editada exitosamente' } }
+        format.html { redirect_to @person, flash: { success: t('.success') } }
       else
-        format.html { render 'edit', flash: { danger: 'Error al tratar de actualizar persona.' } }
+        format.html { render 'edit', flash: { danger: t('.error') } }
       end
     end
   end
@@ -51,7 +51,7 @@ class PeopleController < ApplicationController
   def destroy
     respond_to do |format|
       if @person.destroy
-        format.html { redirect_to people_path, flash: { success: 'Persona eliminada exitosamente del sistema.' } }
+        format.html { redirect_to people_path, flash: { success: t('.success') } }
       end
     end
   end
