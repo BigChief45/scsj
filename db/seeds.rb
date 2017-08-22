@@ -5,7 +5,7 @@ Role.create!(name: 'judge')
 Role.create!(name: 'lawyer')
 
 admin = User.create!(first_name: 'John', last_name: 'Doe',
-  email: 'admin@gmail.com', password: '12345678',
+  email: 'admin@admin.com', password: '12345678',
   password_confirmation: '12345678')
 admin.add_role :admin
 
@@ -38,7 +38,7 @@ end
 10.times do
   lawyers = User.lawyers.limit(2).order('RANDOM()')
   Trial.create!(
-    title: Faker::Lorem.sentence,
+    title: Faker::Book.title,
     description: Faker::Lorem.paragraph(10),
     start_date: Date.today,
     secret: [true, false].sample,
