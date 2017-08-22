@@ -4,6 +4,8 @@
   .col-md-9
     %h2 Juicios
 
+    = render 'search'
+
     - @trials.each do |trial|
       - if can? :read, trial
         .panel.panel-default

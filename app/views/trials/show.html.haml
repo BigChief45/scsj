@@ -10,7 +10,7 @@
     %p= simple_format h @trial.description
     %br
 
-    %h3 Presentaciones
+    %h3 Actuaciones
 
     = render partial: @trial.trial_presentations.order('created_at DESC')
 

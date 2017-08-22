@@ -5,6 +5,10 @@ class TrialsController < ApplicationController
 
   def index
     @trials = Trial.all.order('created_at DESC')
+
+    # Search
+    @q = @trials.ransack(params[:q])
+    @trials = @q.result(distinct: true).order('created_at DESC')
   end
 
   def show
