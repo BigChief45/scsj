@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'People', type: :request do
 
-  let(:user) { FactoryGirl.create(:user, email: 'test@test.com', password: '12345678', password_confirmation: '12345678') }
+  let(:user) { FactoryGirl.create(:user, :judge) }
 
   before :each do
     sign_in user
