@@ -1,7 +1,8 @@
 class PeopleController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_person, except: [:index, :new, :search]
+
+  authorize_resource
 
   def search
     @people = Person.all.where('name LIKE ? OR last_name LIKE ?',

@@ -1,7 +1,8 @@
 class TrialsController < ApplicationController
-
   before_action :authenticate_user!, except: [:index]
-  before_action :find_trial, only: [:show, :edit, :update, :destroy,]
+  before_action :find_trial, only: [:show, :edit, :update, :destroy]
+
+  authorize_resource
 
   def index
     @trials = Trial.all.order('created_at DESC')

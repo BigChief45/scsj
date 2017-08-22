@@ -20,5 +20,5 @@ es:
 
   trial_presentations:
     create:
-      success: "Presentatión ingresada exitosamente."
-      error: "Error al intentar ingresar presentación."
+      success: "Actuación ingresada exitosamente."
+      error: "Error al intentar ingresar actuación."

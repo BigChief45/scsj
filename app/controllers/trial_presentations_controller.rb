@@ -2,6 +2,8 @@ class TrialPresentationsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_trial
 
+  authorize_resource
+
   def create
     @trial_presentation = @trial.trial_presentations.build(trial_presentation_params)
 
