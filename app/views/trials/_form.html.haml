@@ -31,7 +31,7 @@
         = f.association :defendants_lawyer, collection: User.lawyers, label_method: :full_name, value_method: :id, required: true
 
   .form-actions
-    = f.button :submit, 'Crear Juicio', class: 'btn btn-success'
+    = f.button :submit, class: 'btn btn-success'
     = link_to 'Cancelar', root_path, class: 'btn btn-default'
 
 = link_to root_path do
