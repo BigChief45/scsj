@@ -17,3 +17,8 @@ es:
     destroy:
       success: "Persona eliminada exitosamente del sistema."
       error: "Error al intentar eliminar persona del sistema."
+
+  trial_presentations:
+    create:
+      success: "Presentatión ingresada exitosamente."
+      error: "Error al intentar ingresar presentación."

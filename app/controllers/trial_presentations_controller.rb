@@ -7,9 +7,9 @@ class TrialPresentationsController < ApplicationController
 
     respond_to do |format|
       if @trial_presentation.save
-        format.html { redirect_to @trial, flash: { success: 'Presentacion ingresada exitosamente.' } }
+        format.html { redirect_to @trial, flash: { t('.success') } }
       else
-        format.html { redirect_to @trial, flash: { danger: 'Error al tratar de ingresar su presentacion.' } }
+        format.html { redirect_to @trial, flash: { danger: t('.error') } }
       end
     end
   end
