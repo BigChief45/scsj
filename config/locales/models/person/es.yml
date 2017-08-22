@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      person: "Persona"
+    attributes:
+      person:
+        name: "Nombre"
+        last_name: "Apellido"
+        id_number: "Número de Identidad"
+        birth_date: "Fecha de Nacimiento"

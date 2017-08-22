@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    models:
+      trial_presentation: "Actuación"
+    attributes:
+      trial_presentation:
+        description: "Descripción"
+        attachments: "Archivos adjuntos"

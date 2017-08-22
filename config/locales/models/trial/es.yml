@@ -1,11 +1,13 @@
 es:
-  simple_form:
-    labels:
+  activerecord:
+    models:
+      trial: "Juicio"
+    attributes:
       trial:
         title: "Título"
         description: "Descripción"
-        judge: "Juez"
         start_date: "Fecha de Inicio"
+        judge: "Juez"
         secret: "Confidencial"
         plaintiffs: "Demandantes"
         defendants: "Demandados"

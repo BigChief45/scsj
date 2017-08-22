@@ -17,6 +17,9 @@ module Scsj
     config.i18n.available_locales = [:es, :en]
     config.i18n.default_locale = :es
 
+    # Load locale subdirectories
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
      # Layouts for Devise views
     config.to_prepare do
       Devise::SessionsController.layout 'sessions'
