@@ -10,26 +10,15 @@
 
         %ul.nav.nav-pills.nav-stacked
           %li.active
-            %a Perfil
+            %a{ 'aria-expanded': 'true', href: '#profile', 'data-toggle': 'pill', role: 'tab' }
+              = image_tag 'icons/user_16.png'
+              Perfil
           %li
-            %a Juicios
-      .col-md-6
-        /= render_roles(@user)
-
-        %p
-          %strong E-mail:
-          = @user.email
+            %a{ 'aria-expanded': 'true', href: '#trials', 'data-toggle': 'pill', role: 'tab' }
+              = image_tag 'icons/books_16.png'
+              Juicios
+              %span.pull-right.badge= @user.trials.count
       .col-md-10
-
-
-.row
-  .col-md-12
-    %h3 Mis Juicios
-
-    - current_user.trials.each do |trial|
-      .panel.panel-default
-        .panel-body
-          %h4= link_to trial.title, trial
-          = render 'trials/meta', trial: trial
-
-          %p= trial.description
+        .tab-content
+          = render 'profile'
+          = render 'trials'

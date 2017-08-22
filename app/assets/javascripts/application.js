@@ -14,5 +14,6 @@
 //= require bootstrap/dropdown
 //= require bootstrap/tooltip
 //= require bootstrap/popover
+//= require bootstrap/tab
 //= require select2-full
 //= require_tree .

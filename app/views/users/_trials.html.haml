@@ -1,0 +1,8 @@
+#trials.tab-pane.fade
+  - @user.trials.each do |trial|
+    .panel.panel-default
+      .panel-body
+        %h4= link_to trial.title, trial
+        = render 'trials/meta', trial: trial
+
+        %p= trial.description
