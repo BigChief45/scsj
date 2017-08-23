@@ -7,6 +7,7 @@
     .row
       .col-md-12
         = f.input :title, required: true, autofocus: true
+        = f.input :trial_type
         = f.input :description, required: true
 
         = f.association :judge, collection: User.judges, label_method: :full_name, value_method: :id, required: true, readonly: true, selected: current_user.id

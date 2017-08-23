@@ -5,6 +5,7 @@ es:
     attributes:
       trial:
         title: "Título"
+        trial_type: "Tipo de Juicio"
         description: "Descripción"
         start_date: "Fecha de Inicio"
         judge: "Juez"

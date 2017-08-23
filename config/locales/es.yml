@@ -22,3 +22,8 @@ es:
     create:
       success: "Actuación ingresada exitosamente."
       error: "Error al intentar ingresar actuación."
+
+  enums:
+    trial:
+      trial_type:
+        ordinary: "Ordinario"

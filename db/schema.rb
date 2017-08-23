@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170818183919) do
 
   create_table "trials", force: :cascade do |t|
     t.string "title"
+    t.integer "trial_type", default: 0
     t.text "description"
     t.date "start_date"
     t.boolean "secret", default: false

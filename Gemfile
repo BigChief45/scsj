@@ -34,6 +34,7 @@ gem 'haml'
 gem 'devise'
 gem 'devise-i18n'
 gem 'simple_form'
+gem 'enum_help'
 
 gem 'rolify'
 gem 'cancancan', '~> 2.0'
