@@ -1,6 +1,8 @@
 #profile.tab-pane.fade.active.in
-  /= render_roles(@user)
-
-  %p
-    %strong E-mail:
-    = @user.email
+  .form-horizontal
+    .form-group
+      %label.col-md-2.control-label
+        = image_tag 'icons/email_16.png'
+        E-mail
+      .col-md-10
+        %p.form-control-static= @user.email

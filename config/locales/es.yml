@@ -27,3 +27,8 @@ es:
     trial:
       trial_type:
         ordinary: "Ordinario"
+
+  roles:
+    admin: "Administrador"
+    judge: "Juez"
+    lawyer: "Abogado"

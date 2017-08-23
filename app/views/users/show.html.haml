@@ -1,10 +1,17 @@
-.panel.panel-primary
-  .panel-heading
-    %h2.panel-title= @user.full_name
-  .panel-body
-    .row
-      .col-md-2
-        = image_tag @user.avatar.url, class: 'img-circle center-block'
+.row
+  .col-md-3
+    .panel.panel-default
+      .panel-body
+        = image_tag @user.avatar.url, class: 'img-circle img-responsive center-block'
+
+        .text-center
+          %h5
+            %strong= @user.full_name
+
+          %ul.list-inline
+            - @user.roles.each do |role|
+              %li
+                %span.label.label-default= t("roles.#{role.name}")
 
         %hr
 
@@ -18,7 +25,9 @@
               = image_tag 'icons/books_16.png'
               Juicios
               %span.pull-right.badge= @user.trials.count
-      .col-md-10
+  .col-md-9
+    .panel.panel-default
+      .panel-body
         .tab-content
           = render 'profile'
           = render 'trials'
