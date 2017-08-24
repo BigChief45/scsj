@@ -17,5 +17,6 @@
 //= require bootstrap/popover
 //= require bootstrap/tab
 //= require bootstrap/alert
+//= require bootstrap/button
 //= require select2-full
 //= require_tree .

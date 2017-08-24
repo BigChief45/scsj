@@ -9,7 +9,10 @@
     = f.input :last_name, required: true
     = f.input :password, required: true
     = f.input :password_confirmation, required: true
-    = f.input :roles, as: :radio_buttons, collection: Role.all, value_method: :name, required: true
+
+    = f.input :roles, as: :radio_buttons, collection: Role.where.not(name: 'admin'), value_method: :name, label_method: lambda { |role| t("roles.#{role.name}") }
 
   .form-actions
     = f.button :submit, t('.sign_up'), class: 'btn btn-success'
+
+%br
