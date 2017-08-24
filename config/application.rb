@@ -22,6 +22,7 @@ module Scsj
 
      # Layouts for Devise views
     config.to_prepare do
+      Devise::RegistrationsController.layout 'application'
       Devise::SessionsController.layout 'sessions'
       Devise::PasswordsController.layout proc{ |controller| user_signed_in? ? 'application' : 'sessions' }
     end

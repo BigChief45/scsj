@@ -4,4 +4,7 @@ es:
       user: "Usuario"
     attributes:
       user:
+        first_name: "Nombre"
+        last_name: "Apellido"
+        roles: "Tipo de Cuenta"
         avatar: "Foto Personal"
