@@ -12,8 +12,8 @@
 
     %h3 Actuaciones
 
-    = render partial: @trial.trial_presentations.order('created_at DESC')
-
+    = render partial: @trial.trial_presentations.all
+    %br
     = render 'trial_presentations/form'
 
   .col-md-2

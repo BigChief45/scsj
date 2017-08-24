@@ -11,9 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require bootstrap/transition
 //= require bootstrap/dropdown
 //= require bootstrap/tooltip
 //= require bootstrap/popover
 //= require bootstrap/tab
+//= require bootstrap/alert
 //= require select2-full
 //= require_tree .

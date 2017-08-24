@@ -1,7 +1,20 @@
 - flash.each do |name, msg|
-  - if name == 'alert'
+  - case name
+  - when 'alert'
     = content_tag(:div, msg, class: 'alert alert-danger alert-dismissable')
-  - elsif name == 'notice'
+  - when 'notice'
     = content_tag(:div, msg, class: 'alert alert-success alert-dismissable')
-  - else
-    = content_tag(:div, msg, class: "alert alert-#{name} alert-dismissable")
+  - when 'success'
+    .alert.alert-success.alert-dismissable
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} ×
+      %p
+        %i.glyphicon.glyphicon-ok
+        = msg
+  - when 'danger'
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} ×
+      %p
+        %i.glyphicon.glyphicon-remove
+        = msg
