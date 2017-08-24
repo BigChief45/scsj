@@ -11,7 +11,7 @@ class TrialPresentationsController < ApplicationController
       if @trial_presentation.save
         format.html { redirect_to @trial, flash: { success: t('.success') } }
       else
-        format.html { redirect_to @trial, flash: { danger: t('.error') } }
+        format.html { render 'trials/show', flash: { danger: t('.error') } }
       end
     end
   end

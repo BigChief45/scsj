@@ -1,3 +1,5 @@
+= render 'shared/error_messages', resource: @trial_presentation
+
 %h2
   = @trial.title
   .pull-right
@@ -5,14 +7,14 @@
 
 .row
   .col-md-10
-    = render 'meta', trial: @trial
+    = render 'trials/meta', trial: @trial
 
     %p= simple_format h @trial.description
     %br
 
     %h3 Actuaciones
 
-    = render partial: @trial.trial_presentations.all
+    = render @trial.trial_presentations.all
     %br
     = render 'trial_presentations/form'
 

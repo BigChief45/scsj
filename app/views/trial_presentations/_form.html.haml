@@ -8,10 +8,7 @@
           %h5.panel-title
             %strong Nueva actuación
         .panel-body
-          = simple_form_for([@trial, @presentation], html: {multipart: true}) do |f|
-
-            // ERROR MESSAGES
-            = render 'shared/error_messages', resource: @presentation
+          = simple_form_for([@trial, @trial_presentation], html: {multipart: true}) do |f|
 
             .form-inputs
               = f.hidden_field :lawyer_id, value: current_user.id
