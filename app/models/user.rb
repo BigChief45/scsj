@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :mobile_number, presence: true
 
   has_many :trials, foreign_key: :judge_id
 

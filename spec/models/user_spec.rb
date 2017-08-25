@@ -11,6 +11,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_confirmation_of :password }
     it { is_expected.to validate_presence_of :first_name }
     it { is_expected.to validate_presence_of :last_name }
+    it { is_expected.to validate_presence_of :mobile_number }
   end
 
   context 'instance methods' do

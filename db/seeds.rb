@@ -5,6 +5,7 @@ Role.create!(name: 'judge')
 Role.create!(name: 'lawyer')
 
 admin = User.create!(first_name: 'John', last_name: 'Doe',
+  mobile_number: Faker::PhoneNumber.cell_phone,
   email: 'admin@admin.com', password: '12345678',
   password_confirmation: '12345678')
 admin.add_role :admin
@@ -14,6 +15,7 @@ admin.add_role :admin
 5.times do
   judge = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
     email: Faker::Internet.email, password: '12345678',
+    mobile_number: Faker::PhoneNumber.cell_phone,
     password_confirmation: '12345678')
   judge.add_role :judge
 end
@@ -22,6 +24,7 @@ end
 20.times do
   lawyer = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
     email: Faker::Internet.email , password: '12345678',
+    mobile_number: Faker::PhoneNumber.cell_phone,
     password_confirmation: '12345678')
   lawyer.add_role :lawyer
 end

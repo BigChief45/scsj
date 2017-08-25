@@ -1,8 +1,16 @@
 #profile.tab-pane.fade.active.in
+
   .form-horizontal
     .form-group
-      %label.col-md-2.control-label
+      %label.col-md-3.control-label
         = image_tag 'icons/email_16.png'
-        E-mail
-      .col-md-10
+        = t('activerecord.attributes.user.email')
+      .col-md-9
         %p.form-control-static= @user.email
+
+    .form-group
+      %label.col-md-3.control-label
+        = image_tag 'icons/cellphone_16.png'
+        = t('activerecord.attributes.user.mobile_number')
+      .col-md-9
+        %p.form-control-static= @user.mobile_number

@@ -8,3 +8,4 @@ es:
         last_name: "Apellido"
         roles: "Tipo de Cuenta"
         avatar: "Foto Personal"
+        mobile_number: "Número de Celular"

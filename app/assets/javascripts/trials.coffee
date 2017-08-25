@@ -33,6 +33,7 @@ $ ->
   $('.lawyer-search').select2
     theme: 'bootstrap'
     placeholder: 'Seleccione un abogado'
+    minimumInputLength: 1
     escapeMarkup: (markup) ->
       markup
     templateResult: formatLawyer
