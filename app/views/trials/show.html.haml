@@ -12,11 +12,26 @@
     %p= simple_format h @trial.description
     %br
 
-    %h3 Actuaciones
+    %ul.nav.nav-tabs
+      %li.active
+        %a{ href: '#presentations', 'data-toggle': 'tab' }
+          = image_tag 'icons/document_tree_16.png'
+          Actuaciones
+          %span.badge= @trial.trial_presentations.count
+      %li
+        %a{ href: '#documents', 'data-toggle': 'tab' }
+          = image_tag 'icons/file_types/page_white_text.png'
+          Documentos
+          %span.badge= @trial.number_of_attachments
 
-    = render @trial.trial_presentations.all
-    %br
-    = render 'trial_presentations/form'
+    .tab-content
+      %br
+      #presentations.tab-pane.fade.active.in
+        = render @trial.trial_presentations.all
+
+        %br
+        = render 'trial_presentations/form'
+      #documents.tab-pane.fade
 
   .col-md-2
     %h6
@@ -43,4 +58,7 @@
         %li
           %small= link_to person.full_name, person_path(person)
 
+    %hr
 
+    %h6
+      %strong Etiquetas

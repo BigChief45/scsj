@@ -17,6 +17,10 @@ class Trial < ApplicationRecord
   belongs_to :plaintiffs_lawyer, class_name: 'User', foreign_key: :plaintiffs_lawyer_id
   belongs_to :defendants_lawyer, class_name: 'User', foreign_key: :defendants_lawyer_id
 
+  def number_of_attachments
+    self.trial_presentations.reduce(0) { |sum, tp| sum + tp.attachments.count }
+  end
+
   private
 
   def lawyers_are_not_equal

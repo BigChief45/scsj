@@ -8,7 +8,14 @@
       = image_tag 'icons/roles/judge_16.png'
       %strong= trial.judge.full_name
 
-  - if trial.secret
-    %li
-      = image_tag 'icons/lock_16.png'
-      %strong Confidencial
+  %li
+    = image_tag 'icons/document_tree_16.png'
+    %strong
+      = trial.trial_presentations.count
+      Actuaciones
+
+  .pull-right
+    - if trial.secret
+      %li
+        = image_tag 'icons/lock_16.png'
+        %strong Confidencial

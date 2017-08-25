@@ -18,7 +18,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "avatars/" + [version_name, "default_avatar.png"].compact.join('_')
   end
 
-  process resize_to_fit: [128, 128]
+  process resize_to_fit: [100, 100]
 
   # Create different versions of your uploaded files:
   version :navbar do
