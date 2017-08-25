@@ -5,6 +5,7 @@
 .panel-comment {
 	position:relative;
 }
+
 .panel-comment>.panel-heading:after,.panel>.panel-heading:before{
 	position:absolute;
 	top:11px;left:-16px;
@@ -27,3 +28,4 @@
 	border-right-color:#ddd;
 	border-width:8px;
 }
+
