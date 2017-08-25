@@ -6,7 +6,7 @@
       .row
         .col-md-12
           = f.input :title, required: true, autofocus: true
-          = f.input :trial_type
+          = f.input :trial_type, required: true
           = f.input :description, required: true, input_html: { rows: 10 }
 
           = f.association :judge, collection: User.judges, label_method: :full_name, value_method: :id, required: true, disabled: true, selected: current_user.id
@@ -22,14 +22,16 @@
 
       .row
         .col-md-6
-          = f.association :plaintiffs, label_method: :full_name, value_method: :id, include_blank: false, input_html: { 'data-endpoint': people_search_path, class: 'select2-field' }, required: true
+          / Plaintiffs
+          = f.association :plaintiffs, label_method: :full_name, value_method: :id, include_blank: false, input_html: { 'data-endpoint': people_search_path, class: 'person-search' }, required: true
 
-          = f.association :plaintiffs_lawyer, collection: User.lawyers, label_method: :full_name, value_method: :id, required: true
+          = f.association :plaintiffs_lawyer, collection: User.lawyers, label_method: :full_name, value_method: :id, input_html: { class: 'lawyer-search' }, required: true
 
         .col-md-6
-          = f.association :defendants, label_method: :full_name, value_method: :id, include_blank: false, input_html: { 'data-endpoint': people_search_path, class: 'select2-field' }, required: true
+          / Defendants
+          = f.association :defendants, label_method: :full_name, value_method: :id, include_blank: false, input_html: { 'data-endpoint': people_search_path, class: 'person-search' }, required: true
 
-          = f.association :defendants_lawyer, collection: User.lawyers, label_method: :full_name, value_method: :id, required: true
+          = f.association :defendants_lawyer, collection: User.lawyers, label_method: :full_name, value_method: :id, required: true, input_html: { class: 'lawyer-search' }
 
     .form-actions
       = f.button :submit, class: 'btn btn-success'
