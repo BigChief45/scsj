@@ -18,7 +18,7 @@
             %label
               = f.check_box :secret
               Confidencial
-            = render 'shared/help_popover', title: 'Confidencialidad', content: 'Casos marcados como confidenciales solo podran ser vistos por los usuarios involucrados en el caso.'
+            = render 'shared/help_popover', title: t('popovers.confidentiality.title'), content: t('popovers.confidentiality.content')
 
       .row
         .col-md-6

@@ -1,0 +1,5 @@
+es:
+  popovers:
+    confidentiality:
+      title: "Confidencialidad"
+      content: "Casos marcados como confidenciales solo podrán ser vistos por los usuarios involucrados en el caso."
