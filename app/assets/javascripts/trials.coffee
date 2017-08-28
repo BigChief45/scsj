@@ -45,7 +45,7 @@ $ ->
     minimumInputLength: 1
     maximumInputLength: 20
     ajax:
-      url: $('.select2-field').data('endpoint')
+      url: $('.person-search').data('endpoint')
       dataType: 'json'
       delay: 250
       data: (params) ->
