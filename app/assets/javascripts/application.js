@@ -19,4 +19,5 @@
 //= require bootstrap/alert
 //= require bootstrap/button
 //= require select2-full
+//= require select2_locale_es
 //= require_tree .
