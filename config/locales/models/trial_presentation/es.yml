@@ -6,3 +6,7 @@ es:
       trial_presentation:
         description: "Descripción"
         attachments: "Archivos adjuntos"
+
+  action:
+    one: "1 Actuación"
+    other: "%{count} Actuaciones"
