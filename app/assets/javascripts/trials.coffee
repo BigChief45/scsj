@@ -44,6 +44,7 @@ $ ->
   $('.person-search').select2
     theme: 'bootstrap'
     language: 'es'
+    placeholder: 'Seleccione personas'
     minimumInputLength: 1
     maximumInputLength: 20
     ajax:

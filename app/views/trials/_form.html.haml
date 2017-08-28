@@ -5,6 +5,8 @@
     .form-inputs
       .row
         .col-md-12
+          %legend Información General
+
           = f.input :title, required: true, autofocus: true
           = f.input :trial_type, required: true
           = f.input :description, required: true, input_html: { rows: 10 }
@@ -20,7 +22,12 @@
               Confidencial
             = render 'shared/help_popover', title: t('popovers.confidentiality.title'), content: t('popovers.confidentiality.content')
 
+      %br
+
       .row
+        .col-md-12
+          %legend Involucrados
+
         .col-md-6
           / Plaintiffs
           = f.association :plaintiffs, label_method: :full_name, value_method: :id, include_blank: false, input_html: { 'data-endpoint': people_search_path, class: 'person-search' }, required: true
