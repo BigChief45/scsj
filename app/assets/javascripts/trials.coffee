@@ -32,6 +32,7 @@ $ ->
 
   $('.lawyer-search').select2
     theme: 'bootstrap'
+    language: 'es'
     placeholder: 'Seleccione un abogado'
     minimumInputLength: 1
     escapeMarkup: (markup) ->
@@ -42,6 +43,7 @@ $ ->
 
   $('.person-search').select2
     theme: 'bootstrap'
+    language: 'es'
     minimumInputLength: 1
     maximumInputLength: 20
     ajax:
