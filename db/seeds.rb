@@ -14,18 +14,20 @@ if Rails.env.development?
 
 
   # Create judges
+  puts 'Creating judges...'
   5.times do
     judge = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-      email: Faker::Internet.email, password: '12345678',
+      email: Faker::Internet.unique.email, password: '12345678',
       mobile_number: Faker::PhoneNumber.cell_phone,
       password_confirmation: '12345678')
     judge.add_role :judge
   end
 
   # Create lawyers
+  puts 'Creating lawyers...'
   20.times do
     lawyer = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-      email: Faker::Internet.email , password: '12345678',
+      email: Faker::Internet.unique.email, password: '12345678',
       mobile_number: Faker::PhoneNumber.cell_phone,
       password_confirmation: '12345678')
     lawyer.add_role :lawyer
@@ -33,6 +35,7 @@ if Rails.env.development?
 
 
   # People
+  puts 'Creating people...'
   5.times do
     Person.create!(name: Faker::Name.first_name, last_name: Faker::Name.last_name,
       id_number: Faker::Number.number(12), birth_date: Date.today)
@@ -40,6 +43,7 @@ if Rails.env.development?
 
 
   # Create fake trials
+  puts 'Creating trials...'
   10.times do
     lawyers = User.lawyers.limit(2).order('RANDOM()')
     trial = Trial.create!(
@@ -57,7 +61,7 @@ if Rails.env.development?
     Random.rand(10).times do
       trial.trial_presentations.create!(
         description: Faker::Lorem.paragraph(Random.rand(20) + 5),
-        lawyer: [trial.plaintiffs_lawyer, trial.defendants_lawyer, trial.judge].sample
+        user: [trial.plaintiffs_lawyer, trial.defendants_lawyer, trial.judge].sample
         )
     end
   end

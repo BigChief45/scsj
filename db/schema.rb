@@ -49,12 +49,13 @@ ActiveRecord::Schema.define(version: 20170818183919) do
 
   create_table "trial_presentations", force: :cascade do |t|
     t.text "description"
-    t.integer "lawyer_id"
+    t.bigint "user_id"
     t.bigint "trial_id"
     t.string "attachments", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trial_id"], name: "index_trial_presentations_on_trial_id"
+    t.index ["user_id"], name: "index_trial_presentations_on_user_id"
   end
 
   create_table "trials", force: :cascade do |t|
@@ -100,4 +101,5 @@ ActiveRecord::Schema.define(version: 20170818183919) do
   end
 
   add_foreign_key "trial_presentations", "trials"
+  add_foreign_key "trial_presentations", "users"
 end

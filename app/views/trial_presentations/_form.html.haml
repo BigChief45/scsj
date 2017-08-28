@@ -10,7 +10,7 @@
               Nueva Actuación
 
             .form-inputs
-              = f.hidden_field :lawyer_id, value: current_user.id
+              = f.hidden_field :user_id, value: current_user.id
               = f.input :description, label: false, required: true, input_html: { rows: 5 }
               = f.file_field :attachments, multiple: true
 

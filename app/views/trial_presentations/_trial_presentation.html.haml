@@ -2,11 +2,11 @@
   .panel-body
     .media
       .media-left
-        = link_to trial_presentation.lawyer do
-          = image_tag trial_presentation.lawyer.avatar.url(:comment), class: 'media-object img-rounded'
+        = link_to trial_presentation.user do
+          = image_tag trial_presentation.user.avatar.url(:comment), class: 'media-object img-rounded'
       .media-body
         %h5.media-heading
-          %strong= link_to trial_presentation.lawyer.full_name, trial_presentation.lawyer
+          %strong= link_to trial_presentation.user.full_name, trial_presentation.user
         %p.small.text-muted= l(trial_presentation.created_at, format: :long)
 
         %p= simple_format h trial_presentation.description

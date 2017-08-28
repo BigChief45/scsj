@@ -23,6 +23,6 @@ class TrialPresentationsController < ApplicationController
   end
 
   def trial_presentation_params
-    params.require(:trial_presentation).permit(:description, :lawyer_id, {attachments: []})
+    params.require(:trial_presentation).permit(:description, :user_id, {attachments: []})
   end
 end

@@ -12,6 +12,6 @@ RSpec.describe TrialPresentation, type: :model do
 
   context 'associations' do
     it { is_expected.to belong_to(:trial) }
-    it { is_expected.to belong_to(:lawyer).class_name('User').with_foreign_key(:lawyer_id) }
+    it { is_expected.to belong_to(:user) }
   end
 end
