@@ -37,7 +37,7 @@ $ ->
     minimumInputLength: 1
     escapeMarkup: (markup) ->
       markup
-    templateResult: formatLawyer
+    #templateResult: formatLawyer
     templateSelection: (d) ->
       d.text
 
