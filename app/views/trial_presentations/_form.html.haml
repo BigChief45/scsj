@@ -1,14 +1,13 @@
 - if can? :create, @trial => TrialPresentation
   .row
-    .col-md-1
-      = image_tag current_user.avatar.url(:comment), class: 'img-rounded'
-    .col-md-11
-      .panel.panel-default.panel-comment
-        .panel-heading
-          %h5.panel-title
-            %strong Nueva actuación
+    .col-md-12
+      .panel.panel-default
         .panel-body
           = simple_form_for([@trial, @trial_presentation], html: {multipart: true}) do |f|
+
+            %legend
+              = image_tag 'icons/16/page_add.png', alt: 'Nueva Actuación'
+              Nueva Actuación
 
             .form-inputs
               = f.hidden_field :lawyer_id, value: current_user.id

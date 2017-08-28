@@ -24,24 +24,24 @@
               - if can? :read, Person
                 %li
                   = link_to people_path do
-                    %i.fa.fa-user
+                    = image_tag 'icons/group_16.png', alt: 'Personas'
                     Personas
               - if can? :create, Trial
                 %li
                   = link_to new_trial_path do
-                    = image_tag 'icons/application_form_add_16.png'
-                    Crear Juicio
+                    = image_tag 'icons/application_form_add_16.png', alt: 'Crear Nuevo Juicio'
+                    Crear Nuevo Juicio
               %li.divider
               %li
                 = link_to user_path(current_user) do
-                  = image_tag 'icons/user_16.png'
+                  = image_tag 'icons/user_16.png', alt: 'Mi Perfil'
                   Mi Perfil
               %li
                 = link_to edit_user_registration_path do
-                  = image_tag 'icons/cog_edit_16.png'
+                  = image_tag 'icons/cog_edit_16.png', alt: 'Mi Cuenta'
                   Mi Cuenta
               %li.divider
               %li
                 = link_to logout_path, method: :delete do
-                  = image_tag 'icons/door_out_16.png'
+                  = image_tag 'icons/door_out_16.png', alt: 'Cerrar Sesión'
                   Cerrar Sesión
