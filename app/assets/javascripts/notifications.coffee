@@ -13,19 +13,21 @@ $ ->
       )
 
     handleSuccess: (data) =>
-      console.log(data)
       items = $.map data, (notification) ->
         "<li>
           <a href='#{notification.url}'>
             <div class='media'>
               <div class='media-left media-middle'>
-                <img class='media-object' src='/assets/icons/16/page_add.png'>
+                <img class='media-object' src='/assets/icons/32/page_add.png'>
               </div>
               <div class='media-body'>
-                <span class='small text-muted'>#{notification.created_at}</span>
                 <p>
-                  <strong>#{notification.actor}</strong> #{notification.action} #{notification.notifiable.type} en <strong>#{notification.notifiable.trial}</strong>
+                  <strong>#{notification.actor.full_name}</strong> #{notification.action} #{notification.notifiable.type} en <strong>#{notification.notifiable.trial_title}</strong>
                 </p>
+
+                <p class='small text-muted'><i>#{notification.notifiable.summary}</i></p>
+
+                <span class='small text-muted'>#{notification.created_at}</span>
               </div>
             </div>
           </a>
