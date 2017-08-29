@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   resources :people
   get 'people_search', to: 'people#search'
 
-  resources :notifications
+  resources :notifications, only: [:index] do
+    collection do
+      post :mark_as_read
+    end
+  end
 
   root 'trials#index'
 end
