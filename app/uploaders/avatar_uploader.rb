@@ -22,7 +22,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :navbar do
-    process resize_to_fit: [32, 32]
+    process resize_to_fit: [20, 20]
   end
 
   version :comment do
