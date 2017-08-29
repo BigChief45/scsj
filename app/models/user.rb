@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :mobile_number, presence: true
 
   has_many :trials, foreign_key: :judge_id
+  has_many :notifications, foreign_key: :recipient_id
 
   scope :admins, -> { User.with_role(:admin) }
   scope :judges, -> { User.with_role(:judge) }
