@@ -21,8 +21,20 @@
               %span.glyphicon.glyphicon-bell
               %span.badge{ 'data-behavior': 'unread-count' }
               %span.caret
+
             %ul#notifications.dropdown-menu{ 'data-behavior': 'notification-items' }
               %li.dropdown-header.text-uppercase Notificaciones
+              - unless current_user.notifications.unread.empty?
+                %li
+                  .container-fluid
+                    = link_to mark_as_read_notifications_path, method: :post, remote: true, class: 'btn btn-default btn-xs pull-right' do
+                      %span.glyphicon.glyphicon-ok
+                      Marcar como leidas
+                %li.divider
+              - else
+                %li
+                  .container-fluid
+                    %p.text-center.small No hay notificaciones nuevas
 
           / User Links
           %li.dropdown
