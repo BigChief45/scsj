@@ -35,7 +35,7 @@ $ ->
         "
 
       $("[data-behavior='unread-count']").text(items.length)
-      $("[data-behavior='notification-items']").html(items)
+      $("[data-behavior='notification-items']").append(items)
 
   jQuery ->
     new Notifications
