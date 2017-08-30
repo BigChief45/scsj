@@ -16,7 +16,6 @@ class TrialPresentation < ApplicationRecord
 
   def create_notifications
     # Create notifications for judge and lawyers
-
     recipients.each do |recipient|
       Notification.create(recipient: recipient, actor: self.user,
         action: 'posted', notifiable: self)

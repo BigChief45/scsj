@@ -1,10 +1,9 @@
 FactoryGirl.define do
   factory :notification do
-    recipient_id 1
-    actor_id 1
-    read_at "2017-08-29 19:48:25"
-    action "MyString"
-    notifiable_id 1
-    notifiable_type "MyString"
+    recipient { FactoryGirl.create(:user) }
+    actor { FactoryGirl.create(:user) }
+    read_at nil
+    action 'post'
+    notifiable { FactoryGirl.create(:trial_presentation) }
   end
 end

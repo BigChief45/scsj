@@ -14,4 +14,13 @@ RSpec.describe TrialPresentation, type: :model do
     it { is_expected.to belong_to(:trial) }
     it { is_expected.to belong_to(:user) }
   end
+
+  context 'instance methods' do
+
+    it 'creates two notifications when creating a Trial Presentation' do
+      FactoryGirl.create(:trial_presentation)
+      expect(Notification.count).to eq(2)
+    end
+
+  end
 end
