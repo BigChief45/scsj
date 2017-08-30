@@ -6,8 +6,15 @@ class NotificationsController < ApplicationController
   end
 
   def mark_as_read
-    @notifications.update_all(read_at: Time.zone.now)
-    render json: { success: true }
+    if params[:id]
+      @notification = Notification.find(params[:id])
+      @notification.update_attribute(:read_at, Time.zone.now)
+    else
+      @notifications.update_all(read_at: Time.zone.now)
+    end
+
+
+    #render json: { success: true }
   end
 
   private

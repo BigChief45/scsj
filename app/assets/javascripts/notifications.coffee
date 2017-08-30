@@ -15,7 +15,7 @@ $ ->
     handleSuccess: (data) =>
       items = $.map data, (notification) ->
         "<li>
-          <a href='#{notification.url}'>
+          <a href='#{notification.url}' id='#{notification.id}' data-behavior='notification-link'>
             <div class='media'>
               <div class='media-left media-middle'>
                 <img class='media-object' src='/assets/icons/32/page_add.png'>
@@ -36,6 +36,15 @@ $ ->
 
       $("[data-behavior='unread-count']").text(items.length)
       $("[data-behavior='notification-items']").append(items)
+
+      $("[data-behavior='notification-link']").on 'click', @notificationClick
+
+    notificationClick: (e) =>
+      $.ajax(
+        url: "/notifications/#{e.currentTarget.id}/mark_as_read"
+        dataType: 'JSON'
+        method: 'POST'
+      )
 
   jQuery ->
     new Notifications
