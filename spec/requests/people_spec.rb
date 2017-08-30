@@ -8,13 +8,13 @@ RSpec.describe 'People', type: :request do
     sign_in user
   end
 
-  describe 'GET /people_search' do
+  describe 'GET /people/search' do
     before do
       FactoryGirl.create(:person, name: 'Pablo', last_name: 'Escobar')
       FactoryGirl.create(:person, name: 'Pablo', last_name: 'Medina')
       FactoryGirl.create(:person, name: 'Enrique', last_name: 'Iglesias')
 
-      get '/people_search', params: { q: 'Pablo', format: :json}, headers: { 'Accept': 'application/vnd' }
+      get '/people/search', params: { q: 'Pablo', format: :json}, headers: { 'Accept': 'application/vnd' }
     end
 
     it 'returns HTTP status 200' do

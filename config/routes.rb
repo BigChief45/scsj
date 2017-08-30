@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'notifications/index'
-
   devise_for :users, controllers: { registrations: 'registrations' }
 
   devise_scope :user do
@@ -10,12 +8,14 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
+
   resources :trials do
     resources :trial_presentations
   end
 
-  resources :people
-  get 'people_search', to: 'people#search'
+  resources :people do
+    get 'search', on: :collection
+  end
 
   resources :notifications, only: [:index] do
     post :mark_as_read, on: :collection
