@@ -45,15 +45,15 @@ if Rails.env.development?
   # Create fake trials
   puts 'Creating trials...'
   10.times do
-    lawyers = User.lawyers.limit(2).order('RANDOM()')
+    lawyers = User.lawyers.order('RANDOM()').to_a
     trial = Trial.create!(
       title: Faker::Book.title,
       description: Faker::Lorem.paragraph(10),
       start_date: Date.today,
       secret: [true, false].sample,
       judge: User.judges.order('RANDOM()').limit(1).first,
-      plaintiffs_lawyer: lawyers.first,
-      defendants_lawyer: lawyers.last,
+      plaintiffs_lawyer: lawyers.pop,
+      defendants_lawyer: lawyers.pop,
       plaintiff_ids: Person.order('RANDOM()').limit(1).map { |p| p.id },
       defendant_ids: Person.order('RANDOM()').limit(1).map { |p| p.id }
     )
