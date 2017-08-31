@@ -1,0 +1,4 @@
+es:
+  email:
+    notifications:
+      subject: "SCJS: Nueva notificación"
