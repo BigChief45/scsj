@@ -1,5 +1,4 @@
 class NotificationMailer < ApplicationMailer
-  # Hash of default values for any e-mail sent from this mailer
   default from: 'notificaciones@scsj.com'
 
   def notification_email(recipient, notification)
