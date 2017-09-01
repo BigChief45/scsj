@@ -1,10 +1,29 @@
 .row
+  .col-md-12
+    = render 'search'
+
+.row
   .col-md-3
+    - if user_signed_in?
+      .panel.panel-default
+        .panel-heading
+          %strong Mis Juicios
+          %span.badge= current_user.trials.count
+
+          - if can? :create, Trial
+            .pull-right
+              = link_to new_trial_path, class: 'btn btn-success btn-xs' do
+                %span.glyphicon.glyphicon-plus
+                Nuevo Juicio
+
+        .list-group
+          - current_user.trials.each do |trial|
+            = link_to trial, class: 'list-group-item' do
+              = image_tag 'icons/16/book.png'
+              %strong= truncate(trial.title, length: 20)
 
   .col-md-9
     %h2 Juicios
-
-    = render 'search'
 
     - @trials.each do |trial|
       - if can? :read, trial

@@ -11,7 +11,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :mobile_number, presence: true
 
-  has_many :trials, foreign_key: :judge_id
   has_many :notifications, foreign_key: :recipient_id
 
   scope :admins, -> { User.with_role(:admin) }
@@ -20,5 +19,10 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def trials
+    Trial.where('judge_id = ? OR plaintiffs_lawyer_id = ?
+      OR defendants_lawyer_id = ?', self.id, self.id, self.id)
   end
 end
