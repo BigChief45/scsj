@@ -6,11 +6,11 @@ RSpec.describe 'Notifications', type: :request do
 
   before :each do
     sign_in user
-    FactoryGirl.create_list(:notification, 3, recipient: user)
+    FactoryGirl.create_list(:notification, 3, recipient: user, action: 'posted')
   end
 
   describe 'GET /notifications.json' do
-    before { get '/notifications.json', headers: { 'Accept': 'application/vnd' } }
+    before { get '/notifications.json' }
 
     it 'returns HTTP status 200' do
       expect(response).to have_http_status 200

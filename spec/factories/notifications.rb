@@ -3,7 +3,7 @@ FactoryGirl.define do
     recipient { FactoryGirl.create(:user) }
     actor { FactoryGirl.create(:user) }
     read_at nil
-    action 'post'
+    action 'posted'
     notifiable { FactoryGirl.create(:trial_presentation) }
   end
 end
