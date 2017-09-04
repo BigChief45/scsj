@@ -19,7 +19,7 @@ RSpec.describe TrialPresentation, type: :model do
 
     it 'creates two notifications when creating a Trial Presentation' do
       FactoryGirl.create(:trial_presentation)
-      expect(Notification.count).to eq(2)
+      expect(Notification.count).to eq(4)
     end
 
   end

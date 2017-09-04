@@ -13,7 +13,7 @@ RSpec.describe Notification, type: :model do
   end
 
   it 'e-mails the notification' do
-    expect(ActionMailer::Base.deliveries.count).to eq(3)
+    expect(ActionMailer::Base.deliveries.count).to eq(5)
   end
 
 end

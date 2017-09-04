@@ -1,4 +1,5 @@
 class Trial < ApplicationRecord
+  after_commit :create_notifications
 
   enum trial_type: [:ordinary]
 
@@ -27,6 +28,17 @@ class Trial < ApplicationRecord
     if plaintiffs_lawyer == defendants_lawyer
       errors.add(:plaintiffs_lawyer, 'Abogado defensor no puede ser igual que el abogado demandante.')
       errors.add(:defendants_lawyer, 'Abogado demandante no puede ser igual que el abogado defensor.')
+    end
+  end
+
+  def recipients
+    [self.plaintiffs_lawyer, self.defendants_lawyer]
+  end
+
+  def create_notifications
+    recipients.each do |recipient|
+      Notification.create(recipient: recipient, actor: self.judge,
+        action: 'posted', notifiable: self)
     end
   end
 end
