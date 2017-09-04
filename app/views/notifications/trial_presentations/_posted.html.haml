@@ -1,0 +1,18 @@
+%li
+  = link_to trial_trial_presentations_path(notification.notifiable.trial), 'data-behavior': 'notification-link', id: notification.id do
+    .media
+      .media-left.media-middle
+        = presentation_notification_icon(size: :big)
+      .media-body
+        %span.small.text-muted= l(notification.created_at, format: :short)
+        %p
+          %strong= notification.actor.full_name
+          = t("notifications.actions.#{notification.action}")
+          una nueva
+          = notification.notifiable.class.model_name.human.downcase
+          en
+          %strong= notification.notifiable.trial.title
+        %p.small.text-muted
+          %i= truncate(notification.notifiable.description, length: 100)
+
+%li.divider
