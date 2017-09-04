@@ -1,5 +1,5 @@
 class Trial < ApplicationRecord
-  after_commit :create_notifications
+  after_create :create_notifications
 
   enum trial_type: [:ordinary]
 

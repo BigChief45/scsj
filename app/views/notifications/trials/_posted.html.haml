@@ -1,17 +1,17 @@
 %li
-  = link_to notification.notifiable.trial, 'data-behavior': 'notification-link', id: notification.id do
+  = link_to notification.notifiable, 'data-behavior': 'notification-link', id: notification.id do
     .media
       .media-left.media-middle
-        = presentation_notification_icon(size: :big)
+        = trial_notification_icon(size: :big)
       .media-body
         %span.small.text-muted= l(notification.created_at, format: :short)
         %p
           %strong= notification.actor.full_name
           = t("notifications.actions.#{notification.action}")
-          una nueva
+          un nuevo
           = notification.notifiable.class.model_name.human.downcase
-          en
-          %strong= notification.notifiable.trial.title
+          titulado
+          %strong= notification.notifiable.title
         %p.small.text-muted
           %i= truncate(notification.notifiable.description, length: 100)
 

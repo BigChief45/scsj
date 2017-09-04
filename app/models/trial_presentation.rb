@@ -1,5 +1,5 @@
 class TrialPresentation < ApplicationRecord
-  after_commit :create_notifications
+  after_create :create_notifications
 
   mount_uploaders :attachments, AttachmentUploader
 
@@ -15,7 +15,6 @@ class TrialPresentation < ApplicationRecord
   end
 
   def create_notifications
-    # Create notifications for judge and lawyers
     recipients.each do |recipient|
       Notification.create(recipient: recipient, actor: self.user,
         action: 'posted', notifiable: self)

@@ -6,7 +6,7 @@
           = simple_form_for([@trial, @trial_presentation], html: {multipart: true}) do |f|
 
             %legend
-              = image_tag 'icons/16/page_add.png', alt: 'Nueva Actuación'
+              = new_presentation_icon(size: :small)
               Nueva Actuación
 
             .form-inputs

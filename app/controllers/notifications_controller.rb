@@ -14,6 +14,7 @@ class NotificationsController < ApplicationController
     end
 
     respond_to do |format|
+      format.js
       format.json { render json: { success: true } }
     end
   end
