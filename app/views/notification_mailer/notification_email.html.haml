@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
-    %h5 #{@notification.actor.full_name}:
+    %h4 #{@notification.actor.full_name}:
     %p= simple_format h @notification.notifiable.description
 
     %hr
