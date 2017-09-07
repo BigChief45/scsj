@@ -1,11 +1,11 @@
 class Notification < ApplicationRecord
-  after_create :mail_notification
+  scope :unread, -> { where(read_at: nil) }
 
   belongs_to :recipient, class_name: 'User'
   belongs_to :actor, class_name: 'User'
   belongs_to :notifiable, polymorphic: true
 
-  scope :unread, -> { where(read_at: nil) }
+  after_create :mail_notification
 
   private
 

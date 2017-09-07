@@ -1,12 +1,14 @@
 class TrialPresentation < ApplicationRecord
+
+  belongs_to :trial
+  belongs_to :user
+
+  validates :description, presence: true
+
   after_create :create_notifications
 
   mount_uploaders :attachments, AttachmentUploader
 
-  validates :description, presence: true
-
-  belongs_to :trial
-  belongs_to :user
 
   private
 
