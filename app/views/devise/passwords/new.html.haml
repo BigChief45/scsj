@@ -1,0 +1,17 @@
+%h3.text-center= t('.forgot_your_password')
+
+%p.text-center.text-muted Ingresa tu correo electronico para recuperar tu contrasenia.
+
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, required: true, autofocus: true, label: false
+
+  .form-actions
+    = f.button :submit, t('.send_me_reset_password_instructions'), class: 'btn btn-sm btn-block'
+
+%hr
+
+.text-center
+  = render 'devise/shared/links'
