@@ -3,6 +3,16 @@
     = render 'search'
 
 .row
+  .col-md-9
+    - @trials.each do |trial|
+      - if can? :read, trial
+        .panel.panel-default
+          .panel-body
+            %h4= link_to trial.title, trial
+            = render 'meta', trial: trial
+
+            %p= trial.description
+
   .col-md-3
     - if user_signed_in?
       .panel.panel-default
@@ -21,17 +31,3 @@
             = link_to trial, class: 'list-group-item' do
               = image_tag 'icons/16/book.png'
               %strong= truncate(trial.title, length: 20)
-
-  .col-md-9
-    %h2 Juicios
-
-    - @trials.each do |trial|
-      - if can? :read, trial
-        .panel.panel-default
-          .panel-body
-            %h4= link_to trial.title, trial
-            = render 'meta', trial: trial
-
-            %p= trial.description
-
-
