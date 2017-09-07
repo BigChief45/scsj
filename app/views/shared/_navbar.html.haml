@@ -23,17 +23,20 @@
               %span.caret
 
             %ul#notifications.dropdown-menu{ 'data-behavior': 'notification-items' }
-              %li.dropdown-header.text-uppercase Notificaciones
-              - unless current_user.notifications.unread.empty?
+              .container-fluid
                 %li
-                  .container-fluid
-                    = link_to mark_as_read_notifications_path, method: :post, remote: true, class: 'btn btn-default btn-xs pull-right' do
-                      %span.glyphicon.glyphicon-ok
-                      Marcar todas como leidas
+                  %h4
+                    Notificaciones
+                    - unless current_user.notifications.unread.empty?
+                      .pull-right
+                        %li
+                          = link_to mark_as_read_notifications_path, method: :post, remote: true, class: 'btn btn-default btn-xs pull-right' do
+                            %span.glyphicon.glyphicon-ok
+                            Marcar todas como leidas
                 %li.divider
-              - else
-                %li
-                  .container-fluid
+
+                - if current_user.notifications.empty?
+                  %li
                     %p.text-center.small No hay notificaciones nuevas
 
           / User Links
