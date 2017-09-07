@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get 'register', to: 'devise/registrations#new'
+    get 'settings', to: 'devise/registrations#edit'
     get 'login', to: 'devise/sessions#new'
     delete 'logout', to: 'devise/sessions#destroy'
   end

@@ -1,35 +1,38 @@
-%h2 Mi Cuenta
+= image_tag current_user.avatar.url, class: 'img-circle center-block'
 
-.well
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
 
-    = f.error_notification
-    .form-inputs
-      = f.input :email, required: true, autofocus: true
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %p
-          = t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email)
-      = f.input :password, autocomplete: "off", hint: t(".leave_blank_if_you_don_t_want_to_change_it"), required: false
-      = f.input :password_confirmation, required: false
-      = f.input :current_password, hint: t(".we_need_your_current_password_to_confirm_your_changes"), required: true
+  = f.error_notification
 
-      = f.input :mobile_number
-      = f.input :avatar
+  .form-inputs
 
-    .form-actions
+    %h3 Correo y Contraseña
+
+    = f.input :email, required: true, autofocus: true
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %p
+        = t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email)
+    = f.input :password, autocomplete: "off", hint: t(".leave_blank_if_you_don_t_want_to_change_it"), required: false
+    = f.input :password_confirmation, hint: t(".leave_blank_if_you_don_t_want_to_change_it"), required: false
+
+    %br
+    %h3 Datos Personales
+
+    = f.input :mobile_number
+    = f.input :avatar
+
+    %hr
+
+    = f.input :current_password, hint: t(".we_need_your_current_password_to_confirm_your_changes"), required: true
+
+  .form-actions
+    .text-center
       = f.button :submit, t(".update"), class: 'btn btn-success'
 
-%hr
+  %br
 
-.panel.panel-danger
-  .panel-heading
-    %h3.panel-title= t(".cancel_my_account")
-  .panel-body
-    %p
-      Para eliminar su cuenta, presione el siguiente boton.
-      %strong Esta accion es irreversible
+  .text-center
+    %h4
+      %a.text-danger{ href: '#', 'data-toggle': 'modal', 'data-target': '#deactivate-modal' }= t('.cancel_my_account')
 
-    %p.text-center
-      = link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete, class: 'btn btn-danger'
-
-= link_to t("devise.shared.links.back"), :back
+  = render 'deactivate'
