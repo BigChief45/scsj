@@ -1,6 +1,6 @@
 class TrialPresentation < ApplicationRecord
 
-  belongs_to :trial
+  belongs_to :trial, counter_cache: true
   belongs_to :user
 
   validates :description, presence: true

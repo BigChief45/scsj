@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170829194824) do
     t.integer "judge_id"
     t.integer "plaintiffs_lawyer_id"
     t.integer "defendants_lawyer_id"
+    t.integer "trial_presentations_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

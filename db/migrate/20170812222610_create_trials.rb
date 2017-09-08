@@ -11,6 +11,8 @@ class CreateTrials < ActiveRecord::Migration[5.1]
       t.integer :plaintiffs_lawyer_id, foreign_key: true
       t.integer :defendants_lawyer_id, foreign_key: true
 
+      t.integer :trial_presentations_count, default: 0
+
       t.timestamps
     end
   end
