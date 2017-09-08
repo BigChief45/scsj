@@ -29,9 +29,8 @@ class Ability
 
       can :read, Person
 
-      can :read, Trial do |trial|
-        user == trial.plaintiffs_lawyer || user == trial.defendants_lawyer
-      end
+      can :read, Trial, plaintiffs_lawyer_id: user.id
+      can :read, Trial, defendants_lawyer_id: user.id
 
       can :create, TrialPresentation, trial: { plaintiffs_lawyer: user }
       can :create, TrialPresentation, trial: { defendants_lawyer: user }

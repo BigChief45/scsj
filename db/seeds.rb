@@ -49,7 +49,7 @@ if Rails.env.development?
     trial = Trial.create!(
       title: Faker::Book.title,
       description: Faker::Lorem.paragraph(10),
-      start_date: Date.today,
+      start_date: Faker::Date.backward(30),
       secret: [true, false].sample,
       judge: User.judges.order('RANDOM()').limit(1).first,
       plaintiffs_lawyer: lawyers.pop,

@@ -1,15 +1,13 @@
 class TrialsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :find_trial, only: [:show, :edit, :update, :destroy]
-
-  authorize_resource
+  load_and_authorize_resource
 
   def index
-    @trials = Trial.all.order('created_at DESC')
+    @trials = @trials.order(start_date: :desc).page params[:page]
 
     # Search
     @q = @trials.ransack(params[:q])
-    @trials = @q.result(distinct: true).order('created_at DESC')
+    @trials = @q.result(distinct: true).order(created_at: :desc)
   end
 
   def show
