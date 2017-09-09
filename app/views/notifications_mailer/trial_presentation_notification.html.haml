@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p
+      %strong #{@notification.actor.full_name}
+      = t("notifications.actions.#{@notification.action}")
+      una nueva actuación en
+      %strong= @notification.notifiable.trial.title
+
+    %p= simple_format h @notification.notifiable.description
+
+    %hr
+
+    = link_to 'Ver en SCSJ', @url
