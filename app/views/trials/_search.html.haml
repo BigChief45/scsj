@@ -3,7 +3,7 @@
     .well
       = search_form_for @q, url: trials_path do |f|
         .input-group
-          = f.search_field :title_or_description_cont, placeholder: 'Buscar', class: 'form-control'
+          = f.search_field :title_or_description_cont, placeholder: 'Buscar Juicios', class: 'form-control'
           %span.input-group-btn
             = f.button :submit, class: 'btn btn-default' do
               %span.glyphicon.glyphicon-search

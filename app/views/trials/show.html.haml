@@ -27,7 +27,10 @@
     .tab-content
       %br
       #presentations.tab-pane.fade.active.in
-        = render @trial.trial_presentations.all
+        - unless @trial.trial_presentations_count.zero?
+          = render @trial.trial_presentations.all
+        - else
+          %p.text-center.small No hay actuaciones
 
         %br
         = render 'trial_presentations/form'

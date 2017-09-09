@@ -1,9 +1,7 @@
 .row
-  .col-md-12
+  .col-md-9
     = render 'search'
 
-.row
-  .col-md-9
     - @trials.each do |trial|
       - if can? :read, trial
         .panel.panel-default
