@@ -18,6 +18,11 @@ class Trial < ApplicationRecord
   after_create :create_notifications
 
 
+  def attachments
+    # Gather attachments from all presentations
+    self.trial_presentations.map { |tp| tp.attachments }.flatten
+  end
+
   def number_of_attachments
     self.trial_presentations.reduce(0) { |sum, tp| sum + tp.attachments.count }
   end
