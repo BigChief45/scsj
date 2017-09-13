@@ -42,7 +42,7 @@
     %ul.list-unstyled
       %li
         %small= link_to @trial.plaintiffs_lawyer.full_name, user_path(@trial.plaintiffs_lawyer)
-        = image_tag 'icons/roles/lawyer_16.png'
+        = image_tag 'icons/roles/lawyer_16.png', class: 'pull-right'
 
       - @trial.plaintiffs.each do |person|
         %li
@@ -55,7 +55,7 @@
     %ul.list-unstyled
       %li
         %small= link_to @trial.defendants_lawyer.full_name, user_path(@trial.defendants_lawyer)
-        = image_tag 'icons/roles/lawyer_16.png'
+        = image_tag 'icons/roles/lawyer_16.png', class: 'pull-right'
 
       - @trial.defendants.each do |person|
         %li
@@ -65,3 +65,8 @@
 
     %h6
       %strong Etiquetas
+
+    %hr
+
+    %h6
+      %strong Progreso
