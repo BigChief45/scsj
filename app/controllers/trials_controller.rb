@@ -3,7 +3,7 @@ class TrialsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @trials = @trials.order(start_date: :desc).page params[:page]
+    @trials = @trials.order(start_date: :desc).includes(:judge).page params[:page]
 
     # Search
     @q = @trials.ransack(params[:q])
