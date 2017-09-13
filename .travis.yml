@@ -1,0 +1,12 @@
+language: Ruby
+rvm:
+  - 2.4.1
+
+services:
+  -postgresql
+
+before_script:
+  - psql -c 'create database scsj_test;' -U postgres
+
+addons:
+  postgresql: "9.3"
