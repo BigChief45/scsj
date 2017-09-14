@@ -11,6 +11,8 @@ class TrialsController < ApplicationController
   end
 
   def show
+    @trial_presentations = @trial.trial_presentations.all.includes(:user)
+
     @trial_presentation = @trial.trial_presentations.build
   end
 

@@ -28,7 +28,7 @@
       %br
       #presentations.tab-pane.fade.active.in
         - unless @trial.trial_presentations_count.zero?
-          = render @trial.trial_presentations.all
+          = render @trial_presentations
         - else
           %p.text-center.small No hay actuaciones
 
