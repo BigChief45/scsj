@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def trials
-    Trial.where('judge_id = ? OR plaintiffs_lawyer_id = ?
+    @trials ||= Trial.where('judge_id = ? OR plaintiffs_lawyer_id = ?
       OR defendants_lawyer_id = ?', self.id, self.id, self.id).includes(:judge)
   end
 end
